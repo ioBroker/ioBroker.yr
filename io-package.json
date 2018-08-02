@@ -1,9 +1,9 @@
 {
     "common": {
         "name":                     "yr",
-        "version": "2.0.1",
+        "version": "2.0.2",
 		"news": {
-            "2.0.1": {
+            "2.0.2": {
                 "en": "Warning! Breaking changes!\nRefactoring of states and roles",
                 "de": "Warnung! Breaking Änderungen!\nRefactoring von Zuständen und Rollen",
                 "ru": "Предупреждение! Нарушение изменений!\nРефакторинг состояний и ролей",
@@ -72,7 +72,7 @@
 		"type":                     "weather"
     },
     "native": {
-        "location": "Germany/Baden-Württemberg/Stuttgart",
+        "location": "",
         "language": "",
         "sendTranslations": true,
         "nonMetric": false
