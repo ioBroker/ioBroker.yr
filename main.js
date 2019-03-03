@@ -4,7 +4,7 @@
 
 const xml2js     = require('xml2js');
 const http       = require('http');
-const utils      = require(__dirname + '/lib/utils'); // Get common adapter utils
+const utils = require('@iobroker/adapter-core'); // Get common adapter utils
 const dictionary = require(__dirname + '/lib/words');
 
 const adapter = utils.Adapter({
