@@ -1,7 +1,7 @@
 ![Logo](admin/yr.png)
 # ioBroker.yr
 =================================
-[![NPM version](http://img.shields.io/npm/v/iobroker.yr.svg)](https://www.npmjs.com/package/iobroker.yr)
+![Number of Installations](http://iobroker.live/badges/yr-installed.svg) ![Number of Installations](http://iobroker.live/badges/yr-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.yr.svg)](https://www.npmjs.com/package/iobroker.yr)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.yr.svg)](https://www.npmjs.com/package/iobroker.yr)
 [![Tests](https://travis-ci.org/ioBroker/ioBroker.yr.svg?branch=master)](https://travis-ci.org/ioBroker/ioBroker.yr)
 
