@@ -1,6 +1,10 @@
+
+---
+lastChanged: 2019.03.26
+---
 ![Logo](admin/yr.png)
 # ioBroker.yr
-=================================
+
 ![Number of Installations](http://iobroker.live/badges/yr-installed.svg) ![Number of Installations](http://iobroker.live/badges/yr-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.yr.svg)](https://www.npmjs.com/package/iobroker.yr)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.yr.svg)](https://www.npmjs.com/package/iobroker.yr)
 [![Tests](https://travis-ci.org/ioBroker/ioBroker.yr.svg?branch=master)](https://travis-ci.org/ioBroker/ioBroker.yr)
@@ -89,20 +93,14 @@ Icons are taken from here [https://github.com/YR/weather-symbols](https://github
 * (hobbyquaker) fixes
 
 ### 0.0.2
-
 * (hobbyquaker) fixes
-
-
 ### 0.0.1
-
 * (hobbyquaker) first release
 
 ## Todo
-
 * setState forecast_object
 
 ## License
-
 The MIT License (MIT)
 
 Copyright (c) 2014-2018 hobbyquaker <hq@ccu.io>
@@ -124,3 +122,4 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
