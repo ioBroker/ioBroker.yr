@@ -519,7 +519,7 @@
             "_id": "forecast.info.object",
             "type": "state",
             "common": {
-                "type": "object",
+                "type": "string",
                 "name": "forecast table",
                 "role": "weather.table",
                 "read": true,
