@@ -75,7 +75,12 @@
         "loglevel":                 "info",
         "materialize":              true,
         "keywords":                 ["weather", "forecast", "temperature", "rain", "yr", "meteorology"],
-        "main":                     "main.js",
+        "compact":                  true,
+        "adminUI": {
+            "config": "materialize"
+        },
+        "connectionType":           "cloud",
+        "dataSource":               "poll",
         "icon":                     "yr.png",
         "extIcon":                  "https://raw.githubusercontent.com/ioBroker/ioBroker.yr/master/admin/yr.png",
         "readme":                   "https://github.com/ioBroker/ioBroker.yr/blob/master/README.md",

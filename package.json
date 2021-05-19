@@ -24,20 +24,23 @@
     "yr.no"
   ],
   "dependencies": {
-    "xml2js": "^0.4.19",
-    "@iobroker/adapter-core": "^1.0.3"
+    "xml2js": "^0.4.23",
+    "@iobroker/adapter-core": "^2.4.0"
   },
   "devDependencies": {
-    "gulp": "^3.9.1",
-    "mocha": "^6.0.2",
-    "chai": "^4.2.0"
+    "@alcalzone/release-script": "^1.8.3",
+    "@types/iobroker": "^3.2.7",
+    "gulp": "^4.0.2",
+    "mocha": "^8.4.0",
+    "chai": "^4.3.4"
   },
   "bugs": {
     "url": "https://github.com/ioBroker/ioBroker.yr/issues"
   },
   "main": "main.js",
   "scripts": {
-    "test": "node node_modules/mocha/bin/mocha --exit"
+    "test": "node node_modules/mocha/bin/mocha --exit",
+    "release": "release-script"
   },
   "author": "hobbyquaker <hq@ccu.io>",
   "license": "MIT"

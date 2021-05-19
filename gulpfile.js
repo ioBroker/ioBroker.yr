@@ -12,7 +12,7 @@ function getAppName() {
     return parts[parts.length - 1].split('.')[0].toLowerCase();
 }
 */
-const fileName = 'words.js';
+const fileName  = 'words.js';
 const languages =  {
     en: {},
     de: {},
@@ -340,48 +340,48 @@ function languages2words(src, isModule) {
     writeWordJs(bigOne, src, isModule);
 }
 
-gulp.task('[Admin] words.js => json', function (done) {
+gulp.task('[Admin] words.js => json', done => {
     words2languages('./admin/');
     done();
 });
 
-gulp.task('[Admin] words.js => flat', function (done) {
+gulp.task('[Admin] words.js => flat', done => {
     words2languagesFlat('./admin/');
     done();
 });
 
-gulp.task('[Admin] flat => words.js', function (done) {
+gulp.task('[Admin] flat => words.js', done => {
     languagesFlat2words('./admin/');
     done();
 });
 
-gulp.task('[Admin] json => words.js', function (done) {
+gulp.task('[Admin] json => words.js', done => {
     languages2words('./admin/');
     done();
 });
 
-gulp.task('[lib] words.js => json', function (done) {
+gulp.task('[lib] words.js => json', done => {
     words2languages('./lib/');
     done();
 });
 
-gulp.task('[lib] words.js => flat', function (done) {
+gulp.task('[lib] words.js => flat', done => {
     words2languagesFlat('./lib/');
     done();
 });
 
-gulp.task('[lib] flat => words.js', function (done) {
+gulp.task('[lib] flat => words.js', done => {
     languagesFlat2words('./lib/', true);
     done();
 });
 
-gulp.task('[lib] json => words.js', function (done) {
+gulp.task('[lib] json => words.js', done => {
     languages2words('./lib/', true);
     done();
 });
 
 
-gulp.task('updatePackages', function (done) {
+gulp.task('updatePackages', done => {
     iopackage.common.version = pkg.version;
     iopackage.common.news = iopackage.common.news || {};
     if (!iopackage.common.news[pkg.version]) {
@@ -399,7 +399,7 @@ gulp.task('updatePackages', function (done) {
     done();
 });
 
-gulp.task('updateReadme', function (done) {
+gulp.task('updateReadme', done => {
     const readme = fs.readFileSync('README.md').toString();
     const pos = readme.indexOf('## Changelog\n');
     if (pos !== -1) {
@@ -423,4 +423,4 @@ gulp.task('updateReadme', function (done) {
     done();
 });
 
-gulp.task('default', ['updatePackages', 'updateReadme']);
+gulp.task('default', gulp.series('updatePackages', 'updateReadme'));
