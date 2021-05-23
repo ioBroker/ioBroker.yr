@@ -59,7 +59,7 @@ class Yr extends utils.Adapter {
 
 		// Force terminate after 5min
 		setTimeout(() => {
-			adapter.log.error('force terminate');
+			this.log.error('force terminate');
 			process.exit(1);
 		}, 300000);
 	}
