@@ -1,5 +1,6 @@
-/* jshint -W097 */// jshint strict:false
-/*jslint node: true */
+/* jshint -W097 */
+/* jshint strict: false */
+/* jslint node: true */
 'use strict';
 
 const got = require('got');
@@ -36,7 +37,7 @@ class Yr extends utils.Adapter {
 
 	async onReady() {
 		this.log.info('Start version ' + pjson.version);
-		if (typeof this.config.longitude == undefined || this.config.longitude == null || this.config.longitude.length == 0 || isNaN(this.config.longitude) 
+		if (typeof this.config.longitude == undefined || this.config.longitude == null || this.config.longitude.length == 0 || isNaN(this.config.longitude)
 				|| typeof this.config.latitude == undefined || this.config.latitude == null || this.config.latitude.length == 0 || isNaN(this.config.latitude)) {
 			this.log.info("longitude/longitude not set, get data from system ");
 			try{
@@ -74,7 +75,7 @@ class Yr extends utils.Adapter {
 
 	_(text) {
 		if (!text) return '';
-	
+
 		if (dictionary[text]) {
 			let newText = dictionary[text][this.config.language];
 			if (newText) {
@@ -206,7 +207,7 @@ class Yr extends utils.Adapter {
 
 			var hour_data = forecast['data'];
 			var channel = hour_diff + 'h';
-			
+
 			await this.setObjectAsync(device + '.' + channel, {
 				type: 'channel',
 				common: {
@@ -231,7 +232,7 @@ class Yr extends utils.Adapter {
 				native: {},
 			});
 			await this.setStateAsync(base_state_path + 'time', time.toString(), true);
-			
+
 
 			//Instant
 			for(var key in hour_data['instant']['details']) {
@@ -274,7 +275,7 @@ class Yr extends utils.Adapter {
 					native: {},
 				});
 				await this.setStateAsync(base_state_path + '1h_summary_symbol', '/adapter/yr/icons/' + summary1h+ '.svg', true);
-			
+
 				if(summary1h.split('_')[0] in legend){
 					await this.setObjectAsync(base_state_path + '1h_summary_text', {
 						type: 'state',
@@ -297,7 +298,7 @@ class Yr extends utils.Adapter {
 						var value = hour_data['next_1_hours']['details'][key];
 						unit = unit === "celsius" ? '°C' : unit;
 						unit = unit === "degrees" ? '°' : unit;
-		
+
 						await this.setObjectAsync(base_state_path + '1h_' + key, {
 							type: 'state',
 							common: {
@@ -335,7 +336,7 @@ class Yr extends utils.Adapter {
 					native: {},
 				});
 				await this.setStateAsync(base_state_path + '6h_summary_symbol', '/adapter/yr/icons/' + summary6h+ '.svg', true);
-			
+
 				if(summary6h.split('_')[0] in legend){
 					await this.setObjectAsync(base_state_path + '6h_summary_text', {
 						type: 'state',
@@ -358,7 +359,7 @@ class Yr extends utils.Adapter {
 						var value = hour_data['next_6_hours']['details'][key];
 						unit = unit === "celsius" ? '°C' : unit;
 						unit = unit === "degrees" ? '°' : unit;
-		
+
 						await this.setObjectAsync(base_state_path + '6h_' + key, {
 							type: 'state',
 							common: {
@@ -396,7 +397,7 @@ class Yr extends utils.Adapter {
 					native: {},
 				});
 				await this.setStateAsync(base_state_path + '12h_summary_symbol', '/adapter/yr/icons/' + summary12h+ '.svg', true);
-			
+
 				if(summary12h.split('_')[0] in legend){
 					await this.setObjectAsync(base_state_path + '12h_summary_text', {
 						type: 'state',
@@ -419,7 +420,7 @@ class Yr extends utils.Adapter {
 						var value = hour_data['next_12_hours']['details'][key];
 						unit = unit === "celsius" ? '°C' : unit;
 						unit = unit === "degrees" ? '°' : unit;
-		
+
 						await this.setObjectAsync(base_state_path + '12h_' + key, {
 							type: 'state',
 							common: {
@@ -452,13 +453,13 @@ class Yr extends utils.Adapter {
 
 	async main() {
 		var forecast_param = "";
-		if(this.config.latitude.length > 0 
+		if(this.config.latitude.length > 0
 			&& this.config.longitude.length > 0){
 				forecast_param += '?lat=' + this.config.latitude + '&lon=' + this.config.longitude;
 				if(this.config.altitude.length > 0){
 					forecast_param += '&altitude=' + this.config.altitude;
 				}
-				
+
 				var method = this.config.compact ? "compact" : "complete";
 				var url = BASE_FORECAST_URL + method + forecast_param;
 				this.log.debug('Get forecast from: ' + url);

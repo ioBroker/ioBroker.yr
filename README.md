@@ -1,4 +1,3 @@
-
 ![Logo](admin/yr.png)
 # ioBroker.yr
 
@@ -32,11 +31,17 @@ Icons are taken from here [https://api.met.no/weatherapi/weathericon/2.0/documen
 * Add daily forecast based on hourly forecast
 * Add html table
 
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### __WORK IN PROGRESS__
+-->
+
 ## Changelog
 
-### 3.0.0 [2021-05-17]
+### __WORK IN PROGRESS__
 * (withstu) Switch to new JSON API and change data Structure (breaking)
 * (withstu) Update project dependencies
+* (arteck) Type of state was corrected  
 
 ### 2.0.3 [2018-10-10]
 * (bluefox) add translations
@@ -118,7 +123,7 @@ Icons are taken from here [https://api.met.no/weatherapi/weathericon/2.0/documen
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2014-2018 hobbyquaker <hq@ccu.io>
+Copyright (c) 2014-2021 hobbyquaker <hq@ccu.io>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
