@@ -100,9 +100,9 @@
         "latitude": "",
         "longitude": "",
         "altitude": "",
-        "language": "",
+        "language": "en",
         "sendTranslations": true,
-        "nonMetric": false
+        "compact": true
     },
     "objects": [],
     "instanceObjects": []

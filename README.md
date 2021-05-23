@@ -24,12 +24,18 @@ https://api.met.no/weatherapi/locationforecast/2.0/documentation
 **Note** - if _"Send missing translations to iobroker.net"_ is activated (default) missing translations will be sent to iobroker.net server. No ips or any additional info will be stored or analysed. Just missing translation.
 
 ## Icons
-Icons are taken from here [https://github.com/YR/weather-symbols](https://github.com/YR/weather-symbols) and belongs to yr.no.
+Icons are taken from here [https://api.met.no/weatherapi/weathericon/2.0/documentation](https://api.met.no/weatherapi/weathericon/2.0/documentation) and belongs to yr.no.
+
+
+## TODO
+* Add meteogram (png probably will discontinue with new API)
+* Add daily forecast based on hourly forecast
+* Add html table
 
 ## Changelog
 
 ### 3.0.0 [2021-05-17]
-* (withstu) Switch to new JSON API and change Data Structure (breaking)
+* (withstu) Switch to new JSON API and change data Structure (breaking)
 * (withstu) Update project dependencies
 
 ### 2.0.3 [2018-10-10]
