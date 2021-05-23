@@ -43,7 +43,7 @@ class Yr extends utils.Adapter {
 				const state = await this.getForeignObjectAsync("system.config");
 				this.config.longitude = state.common.longitude;
 				this.config.latitude = state.common.latitude;
-				this.log.info("system  latitude: " + this.config.latitude + " longitude: " + this.config.longitude);
+				this.log.info("system latitude: " + this.config.latitude + " longitude: " + this.config.longitude);
 			} catch (err){
 				this.log.error(err);
 			}
