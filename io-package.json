@@ -1,8 +1,20 @@
 {
     "common": {
-        "name":                     "yr",
-        "version": "2.0.3",
+        "name": "yr",
+        "version": "3.0.0",
 		"news": {
+            "3.0.0": {
+                "en": "Switch to new JSON API",
+                "de": "Wechseln Sie zur neuen JSON-API",
+                "ru": "Перейти на новый JSON API",
+                "pt": "Mudar para a nova API JSON",
+                "nl": "Schakel over naar nieuwe JSON API",
+                "fr": "Passer à la nouvelle API JSON",
+                "it": "Passa alla nuova API JSON",
+                "es": "Cambiar a la nueva API JSON",
+                "pl": "Przejdź do nowego interfejsu API JSON",
+                "zh-cn": "切换到新的JSON API"
+            },
             "2.0.3": {
                 "en": "Translations were corrected",
                 "de": "Übersetzungen wurden korrigiert",
@@ -41,7 +53,7 @@
                 "ru": "fix link to readme"
             }
         },
-        "title":                    "yr.no",
+        "title": "yr.no",
         "titleLang":  {
             "en": "yr.no weather",
             "de": "yr.no Wetter",
@@ -54,15 +66,15 @@
             "pl": "yr.no pogody"
         },
         "desc":                     {
-            "en": "Fetches 48h weather forecast from yr.no",
-            "de": "Holt 48h Wettervorhersage von yr.no",
-            "ru": "Получает прогноз погоды на 48h с yr.no",
-            "pt": "Fetches 48h previsão do tempo a partir de yr.no",
-            "nl": "Haal 48h weersvoorspelling op van yr.no",
-            "fr": "Fetchs 48h météo de yr.no",
-            "it": "Calcola le previsioni del tempo a 48 ore dall'anno n",
-            "es": "Obtiene 48h pronóstico del tiempo de yr.no",
-            "pl": "Pobiera 48-godzinną prognozę pogody z yr.no"
+            "en": "Fetches 10d weather forecast from yr.no",
+            "de": "Holt 10d Wettervorhersage von yr.no",
+            "ru": "Получает прогноз погоды на 10d с yr.no",
+            "pt": "Fetches 10d previsão do tempo a partir de yr.no",
+            "nl": "Haal 10d weersvoorspelling op van yr.no",
+            "fr": "Fetchs 10d météo de yr.no",
+            "it": "Calcola le previsioni del tempo a 10 ore dall'anno n",
+            "es": "Obtiene 10d pronóstico del tiempo de yr.no",
+            "pl": "Pobiera 10-godzinną prognozę pogody z yr.no"
         },
         "authors": [
             "hobbyquaker <hq@ccu.io>"
@@ -87,474 +99,16 @@
 		"allowInit":                true,
 		"type":                     "weather"
     },
+    "protectedNative": [],
+	"encryptedNative": [],
     "native": {
-        "location": "",
-        "language": "",
+        "latitude": "",
+        "longitude": "",
+        "altitude": "",
+        "language": "en",
         "sendTranslations": true,
-        "nonMetric": false
+        "compact": true
     },
-    "objects": [
-
-    ],
-    "instanceObjects": [
-        {
-            "_id": "forecast",
-            "type": "device",
-            "common": {
-                "name":  "actual weather or forecast",
-                "role":  "weather"
-            },
-            "native": {}
-        },
-        {
-            "_id": "forecast.day0",
-            "type": "channel",
-            "common": {
-                "name":  "actual weather or forecast for today",
-                "role":  "weather.forecast"
-            },
-            "native": {}
-        },
-        {
-            "_id": "forecast.day0.date",
-            "type": "state",
-            "common": {
-                "name":  "Actual date",
-                "type":  "string",
-                "role":  "date",
-                "read":  true,
-                "write": false,
-                "desc":  "Actual date as string"
-            },
-            "native": {}
-        },
-        {
-            "_id": "forecast.day0.icon",
-            "type": "state",
-            "common": {
-                "name":  "Actual icon",
-                "type":  "string",
-                "role":  "weather.icon",
-                "read":  true,
-                "write": false,
-                "desc":  "Path to icon"
-            },
-            "native": {}
-        },
-        {
-            "_id": "forecast.day0.state",
-            "type": "state",
-            "common": {
-                "name":  "Actual state",
-                "type":  "string",
-                "role":  "weather.state",
-                "read":  true,
-                "write": false,
-                "desc":  "Description of weather"
-            },
-            "native": {}
-        },
-        {
-            "_id": "forecast.day0.temperatureActual",
-            "type": "state",
-            "common": {
-                "name":  "Actual temperature",
-                "type":  "number",
-                "role":  "value.temperature",
-                "read":  true,
-                "unit":  "°C",
-                "write": false
-            },
-            "native": {}
-        },
-        {
-            "_id": "forecast.day0.temperatureMin",
-            "type": "state",
-            "common": {
-                "name":  "Forecast of temperature for today",
-                "type":  "number",
-                "role":  "value.temperature.min.forecast.0",
-                "read":  true,
-                "write": false,
-                "unit":  "°C",
-                "desc":  "Forecast of temperature for today. Minimum value."
-            },
-            "native": {}
-        },
-        {
-            "_id": "forecast.day0.temperatureMax",
-            "type": "state",
-            "common": {
-                "name":  "Forecast of temperature for today",
-                "type":  "number",
-                "role":  "value.temperature.max.forecast.0",
-                "read":  true,
-                "write": false,
-                "unit":  "°C",
-                "desc":  "Forecast of temperature for today. Maximum value."
-            },
-            "native": {}
-        },
-        {
-            "_id": "forecast.day0.precipitation",
-            "type": "state",
-            "common": {
-                "name":  "Forecast of precipitation level for today (rain/snow)",
-                "type":  "number",
-                "role":  "weather.precipitation",
-                "read":  true,
-                "write": false,
-                "unit":  "mm",
-                "desc":  "Forecast for rain or snow level in mm"
-            },
-            "native": {}
-        },
-        {
-            "_id": "forecast.day0.windDirection",
-            "type": "state",
-            "common": {
-                "name":  "Forecast for wind direction for today",
-                "type":  "string",
-                "role":  "weather.direction.wind.forecast.0",
-                "read":  true,
-                "write": false,
-                "desc":  "Forecast for wind direction for today"
-            },
-            "native": {}
-        },
-        {
-            "_id": "forecast.day0.windSpeed",
-            "type": "state",
-            "common": {
-                "name":  "Forecast for wind speed for today",
-                "type":  "number",
-                "role":  "value.speed.wind.forecast.0",
-                "read":  true,
-                "write": false,
-                "unit":  "km/h",
-                "desc":  "Forecast for wind speed in km/h"
-            },
-            "native": {}
-        },
-        {
-            "_id": "forecast.day0.pressure",
-            "type": "state",
-            "common": {
-                "name":  "Forecast for pressure for today",
-                "type":  "number",
-                "role":  "value.pressure.forecast.0",
-                "read":  true,
-                "write": false,
-                "unit":  "hPa",
-                "desc":  "Forecast for pressure in hPa"
-            },
-            "native": {}
-        },
-        {
-            "_id": "forecast.day1",
-            "type": "channel",
-            "common": {
-                "name":  "Forecast for tomorrow",
-                "role":  "weather.forecast"
-            },
-            "native": {}
-        },
-        {
-            "_id": "forecast.day1.date",
-            "type": "state",
-            "common": {
-                "name":  "Tomorrow date",
-                "type":  "string",
-                "role":  "date.forecast.1",
-                "read":  true,
-                "write": false,
-                "desc":  "Tomorrow date as string"
-            },
-            "native": {}
-        },
-        {
-            "_id": "forecast.day1.icon",
-            "type": "state",
-            "common": {
-                "name":  "Icon for tomorrow",
-                "type":  "string",
-                "role":  "weather.icon.forecast.1",
-                "read":  true,
-                "write": false,
-                "desc":  "Path to icon for tomorrow"
-            },
-            "native": {}
-        },
-        {
-            "_id": "forecast.day1.state",
-            "type": "state",
-            "common": {
-                "name":  "Text for tomorrow",
-                "type":  "string",
-                "role":  "weather.state.forecast.1",
-                "read":  true,
-                "write": false,
-                "desc":  "Description of weather for tomorrow"
-            },
-            "native": {}
-        },
-        {
-            "_id": "forecast.day1.temperatureMin",
-            "type": "state",
-            "common": {
-                "name":  "Forecast of temperature for tomorrow",
-                "type":  "number",
-                "role":  "value.temperature.min.forecast.1",
-                "read":  true,
-                "write": false,
-                "unit":  "°C",
-                "desc":  "Forecast of temperature for tomorrow. Minimum value."
-            },
-            "native": {}
-        },
-        {
-            "_id": "forecast.day1.temperatureMax",
-            "type": "state",
-            "common": {
-                "name":  "Forecast of temperature for tomorrow",
-                "type":  "number",
-                "role":  "value.temperature.max.forecast.1",
-                "read":  true,
-                "write": false,
-                "unit":  "°C",
-                "desc":  "Forecast of temperature for tomorrow. Maximum value."
-            },
-            "native": {}
-        },
-        {
-            "_id": "forecast.day1.precipitation",
-            "type": "state",
-            "common": {
-                "name":  "Forecast of precipitation level for tomorrow (rain/snow)",
-                "type":  "number",
-                "role":  "value.precipitation.forecast.1",
-                "read":  true,
-                "write": false,
-                "unit":  "mm",
-                "desc":  "Forecast for rain or snow level in mm"
-            },
-            "native": {}
-        },
-        {
-            "_id": "forecast.day1.windDirection",
-            "type": "state",
-            "common": {
-                "name":  "Forecast for wind direction for tomorrow",
-                "type":  "string",
-                "role":  "weather.direction.wind.forecast.1",
-                "read":  true,
-                "write": false,
-                "desc":  "Forecast wind direction as text"
-            },
-            "native": {}
-        },
-        {
-            "_id": "forecast.day1.windSpeed",
-            "type": "state",
-            "common": {
-                "name":  "Forecast for wind speed for tomorrow",
-                "type":  "number",
-                "role":  "value.speed.wind.forecast.1",
-                "read":  true,
-                "write": false,
-                "unit":  "km/h",
-                "desc":  "Forecast for wind speed in km/h"
-            },
-            "native": {}
-        },
-        {
-            "_id": "forecast.day1.pressure",
-            "type": "state",
-            "common": {
-                "name":  "Forecast for pressure for tomorrow",
-                "type":  "number",
-                "role":  "value.pressure.forecast.1",
-                "read":  true,
-                "write": false,
-                "unit":  "hPa",
-                "desc":  "Forecast for pressure in hPa for tomorrow"
-            },
-            "native": {}
-        },
-        {
-            "_id": "forecast.day2",
-            "type": "channel",
-            "common": {
-                "name":  "actual weather or forecast for the day after tomorrow",
-                "role":  "weather.forecast"
-            },
-            "native": {}
-        },
-        {
-            "_id": "forecast.day2.date",
-            "type": "state",
-            "common": {
-                "name":  "The day after tomorrow date",
-                "type":  "string",
-                "role":  "date.forecast.2",
-                "read":  true,
-                "write": false,
-                "desc":  "The day after tomorrow date as string"
-            },
-            "native": {}
-        },
-        {
-            "_id": "forecast.day2.icon",
-            "type": "state",
-            "common": {
-                "name":  "Icon for the day after tomorrow",
-                "type":  "string",
-                "role":  "weather.icon.forecast.2",
-                "read":  true,
-                "write": false,
-                "desc":  "Path to icon for the day after tomorrow"
-            },
-            "native": {}
-        },
-        {
-            "_id": "forecast.day2.state",
-            "type": "state",
-            "common": {
-                "name":  "Day after tomorrow state",
-                "type":  "string",
-                "role":  "weather.state.forecast.2",
-                "read":  true,
-                "write": false,
-                "desc":  "Description of weather for the day after tomorrow"
-            },
-            "native": {}
-        },
-        {
-            "_id": "forecast.day2.temperatureMin",
-            "type": "state",
-            "common": {
-                "name":  "Forecast of temperature for the day after tomorrow",
-                "type":  "number",
-                "role":  "value.temperature.min.forecast.2",
-                "read":  true,
-                "write": false,
-                "unit":  "°C",
-                "desc":  "Forecast of temperature for the day after tomorrow. Minimum value."
-            },
-            "native": {}
-        },
-        {
-            "_id": "forecast.day2.temperatureMax",
-            "type": "state",
-            "common": {
-                "name":  "Forecast of temperature for the day after tomorrow",
-                "type":  "number",
-                "role":  "value.temperature.max.forecast.2",
-                "read":  true,
-                "write": false,
-                "unit":  "°C",
-                "desc":  "Forecast of temperature for the day after tomorrow. Maximum value."
-            },
-            "native": {}
-        },
-        {
-            "_id": "forecast.day2.precipitation",
-            "type": "state",
-            "common": {
-                "name":  "Forecast of precipitation level for the day after tomorrow (rain/snow)",
-                "type":  "number",
-                "role":  "value.precipitation.forecast.2",
-                "read":  true,
-                "write": false,
-                "unit":  "mm",
-                "desc":  "Forecast for rain or snow level in mm"
-            },
-            "native": {}
-        },
-        {
-            "_id": "forecast.day2.windDirection",
-            "type": "state",
-            "common": {
-                "name":  "Forecast for wind direction for the day after tomorrow",
-                "type":  "string",
-                "role":  "weather.direction.wind.forecast.2",
-                "read":  true,
-                "write": false,
-                "desc":  "Forecast for wind direction as text"
-            },
-            "native": {}
-        },
-        {
-            "_id": "forecast.day2.windSpeed",
-            "type": "state",
-            "common": {
-                "name":  "Forecast for wind speed for the day after tomorrow",
-                "type":  "number",
-                "role":  "value.speed.wind.forecast.2",
-                "read":  true,
-                "write": false,
-                "unit":  "km/h",
-                "desc":  "Forecast for wind speed in km/h"
-            },
-            "native": {}
-        },
-        {
-            "_id": "forecast.day2.pressure",
-            "type": "state",
-            "common": {
-                "name":  "Forecast for pressure for the day after tomorrow",
-                "type":  "number",
-                "role":  "value.pressure.forecast.2",
-                "read":  true,
-                "write": false,
-                "unit":  "hPa",
-                "desc":  "Forecast for pressure in hPa for the day after tomorrow"
-            },
-            "native": {}
-        },
-        {
-            "_id": "forecast.info",
-            "type": "channel",
-            "common": {
-                "name": "forecast links and objects"
-            },
-            "native": {}
-        },
-        {
-            "_id": "forecast.info.object",
-            "type": "state",
-            "common": {
-                "type": "string",
-                "name": "forecast table",
-                "role": "weather.table",
-                "read": true,
-                "write": false
-            },
-            "native": {}
-        },
-        {
-            "_id": "forecast.info.html",
-            "type": "state",
-            "common": {
-                "type": "string",
-                "name": "forecast html",
-                "role": "weather.html",
-                "read": true,
-                "write": false
-            },
-            "native": {}
-        },
-        {
-            "_id": "forecast.info.diagram",
-            "type": "state",
-            "common": {
-                "type":  "string",
-                "name":  "forecast diagram url",
-                "role":  "weather.chart.url.forecast",
-                "read":  true,
-                "write": false
-            },
-            "native": {}
-        }
-    ]
+    "objects": [],
+    "instanceObjects": []
 }

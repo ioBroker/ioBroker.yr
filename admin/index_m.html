@@ -1,171 +1,113 @@
 <html>
+
 <head>
-    <meta charset="UTF-8">
-    <!-- Materialze style -->
-    <link rel="stylesheet" type="text/css" href="../../css/adapter.css"/>
-    <link rel="stylesheet" type="text/css" href="../../lib/css/materialize.css">
 
-    <script type="text/javascript" src="../../lib/js/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript" src="../../socket.io/socket.io.js"></script>
+	<!-- Load ioBroker scripts and styles-->
+	<link rel="stylesheet" type="text/css" href="../../css/adapter.css" />
+	<link rel="stylesheet" type="text/css" href="../../lib/css/materialize.css">
 
-    <script type="text/javascript" src="../../js/translate.js"></script>
-    <script type="text/javascript" src="../../lib/js/materialize.js"></script>
-    <script type="text/javascript" src="../../js/adapter-settings.js"></script>
-    <script type="text/javascript" src="words.js"></script>
+	<script type="text/javascript" src="../../lib/js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="../../socket.io/socket.io.js"></script>
 
-    <script type="text/javascript">
-        function fillCities(actualValue) {
-            $('#location').on('change', function () {
-                var val = $(this).val();
-                var url = 'http://www.yr.no/_/websvc/jsonforslagsboks.aspx?s=' + encodeURIComponent(val);
-                socket.emit('httpGet', {
-                    url: url,
-                    headers: {'Cookie': 'brp=spr=eng'}
-                }, function (err, res) {
-                    if (!err && res.body) {
-                        var obj = JSON.parse(res.body);
-                        if (!obj[1]) {
-                            console.warn('Invalid answer');
-                        } else {
-                            obj = obj[1];
-                        }
-                        var data = {};
-                        for (var i = 0; i < obj.length; i++) {
-                            var tmp = obj[i];
-                            data[tmp[1].substr(7, tmp[1].length - 8)] = null;
-                        }
-                        $('#location').mautocomplete('updateData', data);
-                    } else {
-                        err && console.error(err);
-                        showToast(null, _('Cannot fetch cities!'));
-                    }
-                });
-            }).on('keyup', function () {
-                $(this).trigger('change');
-            }).mautocomplete({
-                data: {}
-            });
-        }
+	<script type="text/javascript" src="../../js/translate.js"></script>
+	<script type="text/javascript" src="../../lib/js/materialize.js"></script>
+	<script type="text/javascript" src="../../js/adapter-settings.js"></script>
 
-        function load(settings, onChange) {
-            var $language = $('#language');
+	<!-- Load our own files -->
+	<link rel="stylesheet" type="text/css" href="style.css" />
+	<script type="text/javascript" src="words.js"></script>
 
-            $('#location')
-                .val(settings.location)
-                .on('change', onChange)
-                .on('keyup', onChange);
+	<script type="text/javascript">
+		// This will be called by the admin adapter when the settings page loads
+		function load(settings, onChange) {
+			// example: select elements with id=key and class=value and insert value
+			if (!settings) return;
+			$('.value').each(function () {
+				var $key = $(this);
+				var id = $key.attr('id');
+				if ($key.attr('type') === 'checkbox') {
+					// do not call onChange direct, because onChange could expect some arguments
+					$key.prop('checked', settings[id])
+						.on('change', () => onChange())
+						;
+				} else {
+					// do not call onChange direct, because onChange could expect some arguments
+					$key.val(settings[id])
+						.on('change', () => onChange())
+						.on('keyup', () => onChange())
+						;
+				}
+			});
+			onChange(false);
+			// reinitialize all the Materialize labels on the page if you are dynamically adding inputs:
+			if (M) M.updateTextFields();
+		}
 
-            $language
-                .val(settings.language)
-                .on('change', onChange).select();
+		// This will be called by the admin adapter when the user presses the save button
+		function save(callback) {
+			// example: select elements with class=value and build settings object
+			var obj = {};
+			$('.value').each(function () {
+				var $this = $(this);
+				if ($this.attr('type') === 'checkbox') {
+					obj[$this.attr('id')] = $this.prop('checked');
+				} else {
+					obj[$this.attr('id')] = $this.val();
+				}
+			});
+			callback(obj);
+		}
+	</script>
 
-
-            if (settings.sendTranslations === undefined) {
-                settings.sendTranslations = true;
-            }
-            $('#sendTranslations')
-                .prop('checked', settings.sendTranslations)
-                .on('change', onChange);
-
-            onChange(false);
-
-            // Setup default language
-            if (!settings.language){
-                $language
-                    .val(systemLang)
-                    .trigger('change').select();
-            }
-
-            fillCities(settings.location);
-            M.updateTextFields();
-            if (!settings.location) {
-                socket.emit('getObject', 'system.config', function (err, config) {
-                    if (config && config.common) {
-                        if (config.common.tempUnit.indexOf('F') !== -1) {
-                            $('#nonMetric').prop('checked', true).trigger('change');
-                        }
-                    }
-                    if (config && config.common && config.common.country && config.common.city) {
-                        var url = 'http://www.yr.no/_/websvc/jsonforslagsboks.aspx?s=' + encodeURIComponent(config.common.city);
-                        socket.emit('httpGet', {
-                            url: url,
-                            headers: {'Cookie': 'brp=spr=eng'}
-                        }, function (err, res) {
-                            if (!err && res.body) {
-                                var obj = JSON.parse(res.body);
-                                if (!obj[1]) {
-                                    console.warn('Invalid answer');
-                                } else {
-                                    obj = obj[1];
-                                }
-                                var data = {};
-                                for (var i = 0; i < obj.length; i++) {
-                                    var tmp = obj[i];
-                                    var place = tmp[1].substr(7, tmp[1].length - 8);
-                                    if (place.indexOf(config.common.country) !== -1) {
-                                        $('#location').val(place).trigger('change');
-                                        M.updateTextFields();
-                                        break;
-                                    }
-                                }
-                            }
-                        });
-                    }
-                });
-            }
-        }
-
-        function save(callback) {
-            callback({
-                location: $('#location').val(),
-                language: $('#language').val(),
-                sendTranslations: $('#sendTranslations').prop('checked')
-            });
-        }
-
-    </script>
 </head>
+
 <body>
-<div id="adapter-container">
-    <div class="m adapter-container">
-        <div class="row">
-            <div class="col s12 m4 l2">
-                <img src="yr.png" class="logo">
-            </div>
-        </div>
-        <div class="row">
-            <div class="input-field col s12 m4">
-                <input class="value autocomplete" id="location" type="text"/>
-                <label for="location" class="translate">Place</label>
-            </div>
-        </div>
-        <div class="row">
-            <div class="input-field col s12 m4">
-                <select class="value" id="language">
+
+	<div class="m adapter-container">
+
+		<div class="row">
+			<div class="col s12 m4 l2">
+				<img src="yr.png" class="logo">
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col s12"><h5 class="translate">Location</h5></div>
+			<div class="col s4 input-field">
+				<input type="text" class="value" id="latitude" />
+				<label for="latitude" class="translate">Latitude (use system config if empty)</label>
+			</div>
+			<div class="col s4 input-field">
+				<input type="text" class="value" id="longitude" />
+				<label for="longitude" class="translate">Longitude (use system config if empty)</label>
+			</div>
+            <div class="col s4 input-field">
+				<input type="text" class="value" id="altitude" />
+				<label for="altitude" class="translate">Altitude (use system config if empty)</label>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col s12"><h5 class="translate">Comfort settings</h5></div>
+            <div class="col s6 input-field">
+				<input type="checkbox" class="value" id="compact"/>
+				<label for="compact" class="translate">Compact</label>
+			</div>
+			<div class="col s6 input-field">
+				<select class="value" id="language" >
                     <option value="en">English</option>
                     <option value="de">Deutsch</option>
                     <option value="ru">русский</option>
-                </select>
-                <label for="language" class="translate">Language</label>
-            </div>
-        </div>
-        <div class="row">
-            <div class="input-field col s12 m4">
-                <input class="value" type="checkbox" id="nonMetric"/>
-                <span for="nonMetric" class="translate">Use english metric system</span>
-            </div>
-        </div>
-        <div class="row">
-            <div class="input-field col s12 m4">
-                <input class="value" type="checkbox" id="sendTranslations"/>
-                <span for="sendTranslations" class="translate">Send missing translations to iobroker.net</span>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col s12 m4">
-                <span style="padding-left: 12px; font-size: 16px" class="translate">yrDescription</span>
-            </div>
-        </div>
-    </div>
+				  </select>
+				<label for="language" class="translate">Language</label>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col s12"><h5 class="translate">Advanced settings</h5></div>
+            <div class="col s6 input-field">
+				<input type="checkbox" class="value" id="sendTranslations"/>
+				<label for="sendTranslations" class="translate">Send Translations</label>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
