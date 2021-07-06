@@ -2,7 +2,7 @@
     "common": {
         "name": "yr",
         "version": "3.0.0",
-		"news": {
+        "news": {
             "3.0.0": {
                 "en": "Switch to new JSON API",
                 "de": "Wechseln Sie zur neuen JSON-API",
@@ -24,7 +24,8 @@
                 "fr": "Les traductions ont été corrigées",
                 "it": "Le traduzioni sono state corrette",
                 "es": "Las traducciones fueron corregidas",
-                "pl": "Tłumaczenia zostały poprawione"
+                "pl": "Tłumaczenia zostały poprawione",
+                "zh-cn": "翻译已更正"
             },
             "2.0.2": {
                 "en": "Warning! Breaking changes!\nRefactoring of states and roles",
@@ -35,26 +36,48 @@
                 "fr": "Attention! Briser les changements!\nRefactorisation des états et des rôles",
                 "it": "Avvertimento! Ultime modifiche!\nRefactoring di stati e ruoli",
                 "es": "¡Advertencia! ¡Rompiendo cambios!\nRefactorización de estados y roles",
-                "pl": "Ostrzeżenie! Łamanie zmian!\nRefaktoryzacja stanów i ról"
+                "pl": "Ostrzeżenie! Łamanie zmian!\nRefaktoryzacja stanów i ról",
+                "zh-cn": "警告！"
             },
             "1.0.6": {
                 "en": "Update iconset",
                 "de": "Iconset geändert",
-                "ru": "Update iconset"
+                "ru": "Update iconset",
+                "pt": "Atualizar conjunto de ícones",
+                "nl": "Pictogramset bijwerken",
+                "fr": "Mettre à jour le jeu d'icônes",
+                "it": "Aggiorna set di icone",
+                "es": "Actualizar conjunto de iconos",
+                "pl": "Zaktualizuj zestaw ikon",
+                "zh-cn": "更新图标集"
             },
             "1.0.5": {
                 "en": "move weather widgets to this adapter",
                 "de": "Verschiebe Wetter-Widgets ins Adapter",
-                "ru": "Добавлены виджеты"
+                "ru": "Добавлены виджеты",
+                "pt": "mover widgets de clima para este adaptador",
+                "nl": "verplaats weerwidgets naar deze adapter",
+                "fr": "déplacer les widgets météo vers cet adaptateur",
+                "it": "sposta i widget meteo su questo adattatore",
+                "es": "mover widgets meteorológicos a este adaptador",
+                "pl": "przenieś widżety pogodowe do tego adaptera",
+                "zh-cn": "将天气小部件移动到此适配器"
             },
             "1.0.4": {
                 "en": "fix link to readme",
                 "de": "fix link to readme",
-                "ru": "fix link to readme"
+                "ru": "fix link to readme",
+                "pt": "consertar link para ler-me",
+                "nl": "link naar readme repareren",
+                "fr": "réparer le lien vers readme",
+                "it": "correggi il collegamento al readme",
+                "es": "arreglar el enlace al archivo Léame",
+                "pl": "napraw link do readme",
+                "zh-cn": "修复自述文件链接"
             }
         },
         "title": "yr.no",
-        "titleLang":  {
+        "titleLang": {
             "en": "yr.no weather",
             "de": "yr.no Wetter",
             "ru": "yr.no погода",
@@ -63,9 +86,10 @@
             "fr": "yr.no météo",
             "it": "anno vecchio",
             "es": "yr.no tiempo",
-            "pl": "yr.no pogody"
+            "pl": "yr.no pogody",
+            "zh-cn": "yr.no天气"
         },
-        "desc":                     {
+        "desc": {
             "en": "Fetches 10d weather forecast from yr.no",
             "de": "Holt 10d Wettervorhersage von yr.no",
             "ru": "Получает прогноз погоды на 10d с yr.no",
@@ -74,33 +98,47 @@
             "fr": "Fetchs 10d météo de yr.no",
             "it": "Calcola le previsioni del tempo a 10 ore dall'anno n",
             "es": "Obtiene 10d pronóstico del tiempo de yr.no",
-            "pl": "Pobiera 10-godzinną prognozę pogody z yr.no"
+            "pl": "Pobiera 10-godzinną prognozę pogody z yr.no",
+            "zh-cn": "从 yr.no 获取 10d 天气预报"
         },
         "authors": [
             "hobbyquaker <hq@ccu.io>"
         ],
-        "license":                  "MIT",
-        "platform":                 "Javascript/Node.js",
-        "mode":                     "schedule",
-        "schedule":                 "6 * * * *",
-        "enabled":                  true,
-        "loglevel":                 "info",
-        "materialize":              true,
-        "keywords":                 ["weather", "forecast", "temperature", "rain", "yr", "meteorology"],
-        "compact":                  true,
+        "license": "MIT",
+        "platform": "Javascript/Node.js",
+        "mode": "schedule",
+        "schedule": "6 * * * *",
+        "enabled": true,
+        "loglevel": "info",
+        "materialize": true,
+        "keywords": [
+            "weather",
+            "forecast",
+            "temperature",
+            "rain",
+            "yr",
+            "meteorology"
+        ],
+        "compact": true,
         "adminUI": {
             "config": "materialize"
         },
-        "connectionType":           "cloud",
-        "dataSource":               "poll",
-        "icon":                     "yr.png",
-        "extIcon":                  "https://raw.githubusercontent.com/ioBroker/ioBroker.yr/master/admin/yr.png",
-        "readme":                   "https://github.com/ioBroker/ioBroker.yr/blob/master/README.md",
-		"allowInit":                true,
-		"type":                     "weather"
+        "connectionType": "cloud",
+        "dataSource": "poll",
+        "tier": 2,
+        "icon": "yr.png",
+        "extIcon": "https://raw.githubusercontent.com/ioBroker/ioBroker.yr/master/admin/yr.png",
+        "readme": "https://github.com/ioBroker/ioBroker.yr/blob/master/README.md",
+        "allowInit": true,
+        "type": "weather",
+        "plugins": {
+            "sentry": {
+                "dsn": "https://696e8a28848042c288d68172bca32737@sentry.iobroker.net/140"
+            }
+        }
     },
     "protectedNative": [],
-	"encryptedNative": [],
+    "encryptedNative": [],
     "native": {
         "latitude": "",
         "longitude": "",

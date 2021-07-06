@@ -1,0 +1,8 @@
+{
+    "Language": "Język",
+    "Place": "Miejsce",
+    "Send missing translations to iobroker.net": "Wyślij brakujące tłumaczenia do iobroker.net",
+    "Use english metric system": "Użyj angielskiego systemu metrycznego (°F, mile)",
+    "yr.no adapter settings": "yr.no ustawienia adaptera",
+    "yrDescription": "<a href=\"http://www.yr.no/\" target=\"_blank\">yr.no</a> to usługa wspólna według celu <a            href=\"http://met.no/\" target=\"_blank\">Norweski Instytut Meteorologiczny</a> i            <a href=\"http://www.nrk.no\" target=\"_blank\">Norweska korporacja radiowa</a>"
+}
