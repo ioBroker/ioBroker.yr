@@ -32,6 +32,10 @@ class Yr extends utils.Adapter {
         });
     }
 
+    onUnload(callback) {
+        callback && callback();
+    }
+
     async onReady() {
         if ((!this.config.longitude && this.config.longitude !== 0) || isNaN(this.config.longitude) ||
             (!this.config.latitude && this.config.latitude !== 0) || isNaN(this.config.latitude)
