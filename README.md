@@ -37,7 +37,7 @@ Icons are taken from here [https://api.met.no/weatherapi/weathericon/2.0/documen
 
 ## Changelog
 
-### __WORK IN PROGRESS__
+### 3.0.1 (2021-07-06)
 * (Apollon77) Optimizations and Fixes
 * (Apollon77) Add Sentry crash reporting
 
