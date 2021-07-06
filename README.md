@@ -37,6 +37,10 @@ Icons are taken from here [https://api.met.no/weatherapi/weathericon/2.0/documen
 
 ## Changelog
 
+### __WORK IN PROGRESS__
+* (Apollon77) Optimizations and Fixes
+* (Apollon77) Add Sentry crash reporting
+
 ### 3.0.0 [2021-06-06]
 * (withstu) Switch to new JSON API and change data Structure (breaking)
 * (withstu) Update project dependencies
