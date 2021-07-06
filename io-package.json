@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "yr",
-        "version": "3.0.0",
+        "version": "3.0.1",
         "news": {
+            "3.0.1": {
+                "en": "Optimizations and Fixes\nAdd Sentry crash reporting",
+                "de": "Optimierungen und Fixes\nSentry-Absturzberichte hinzufügen",
+                "ru": "Оптимизация и исправления\nДобавить отчет о сбоях Sentry",
+                "pt": "Otimizações e correções\nAdicionar relatório de falha do Sentry",
+                "nl": "Optimalisaties en oplossingen\nSentry-crashrapportage toevoegen",
+                "fr": "Optimisations et correctifs\nAjouter un rapport de plantage Sentry",
+                "it": "Ottimizzazioni e correzioni\nAggiungi segnalazione di arresto anomalo di Sentry",
+                "es": "Optimizaciones y correcciones\nAgregar informe de fallas de Sentry",
+                "pl": "Optymalizacje i poprawki\nDodaj raport o awariach Sentry",
+                "zh-cn": "优化和修复\n添加哨兵崩溃报告"
+            },
             "3.0.0": {
                 "en": "Switch to new JSON API",
                 "de": "Wechseln Sie zur neuen JSON-API",
