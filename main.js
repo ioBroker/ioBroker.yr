@@ -453,7 +453,7 @@ class Yr extends utils.Adapter {
     }
 
     async main() {
-        const forecastParam = '';
+        let forecastParam = '';
         if (this.config.latitude.length > 0 && this.config.longitude.length > 0) {
             forecastParam += `?lat=${this.config.latitude}&lon=${this.config.longitude}`;
             if (this.config.altitude.length > 0) {
