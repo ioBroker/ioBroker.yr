@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "yr",
-        "version": "3.0.1",
+        "version": "3.0.2",
         "news": {
+            "3.0.2": {
+                "en": "Fix crash issue from Sentry",
+                "de": "Absturzproblem von Sentry behoben",
+                "ru": "Устранить проблему сбоя из Sentry",
+                "pt": "Corrigir problema de travamento do Sentry",
+                "nl": "Crashprobleem van Sentry oplossen",
+                "fr": "Résoudre le problème de plantage de Sentry",
+                "it": "Risolto il problema di arresto anomalo di Sentry",
+                "es": "Solucionar problema de bloqueo de Sentry",
+                "pl": "Napraw problem z awarią z Sentry",
+                "zh-cn": "修复 Sentry 的崩溃问题"
+            },
             "3.0.1": {
                 "en": "Optimizations and Fixes\nAdd Sentry crash reporting",
                 "de": "Optimierungen und Fixes\nSentry-Absturzberichte hinzufügen",
