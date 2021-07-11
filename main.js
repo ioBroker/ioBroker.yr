@@ -255,7 +255,7 @@ class Yr extends utils.Adapter {
                     },
                     native: {},
                 });
-                await this.setStateAsync(base_state_path + key, value, true);
+                await this.setStateAsync(base_state_path + key, parseFloat(value), true);
             }
             //Next 1h
             if ('next_1_hours' in hour_data) {
@@ -313,7 +313,7 @@ class Yr extends utils.Adapter {
                             },
                             native: {},
                         });
-                        await this.setStateAsync(base_state_path + '1h_' + key, value, true);
+                        await this.setStateAsync(base_state_path + '1h_' + key, parseFloat(value), true);
                     }
                 }
             }
@@ -374,7 +374,7 @@ class Yr extends utils.Adapter {
                             },
                             native: {},
                         });
-                        await this.setStateAsync(base_state_path + '6h_' + key, value, true);
+                        await this.setStateAsync(base_state_path + '6h_' + key, parseFloat(value), true);
                     }
                 }
             }
@@ -436,7 +436,7 @@ class Yr extends utils.Adapter {
                             native: {},
                         });
 
-                        await this.setStateAsync(base_state_path + '12h_' + key, value, true);
+                        await this.setStateAsync(base_state_path + '12h_' + key, parseFloat(value), true);
                     }
                 }
             }
