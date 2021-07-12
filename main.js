@@ -63,13 +63,15 @@ class Yr extends utils.Adapter {
             this.config.sendTranslations = false;
         }
 
-        this.main();
-
         // Force terminate after 5min
         setTimeout(() => {
             this.log.error('force terminate');
-            process.exit(1);
+            this.terminate ? this.terminate() : process.exit(0);
         }, 300000);
+
+        await this.main();
+        this.log.debug('Update of data done, existing ...');
+        this.terminate ? this.terminate() : process.exit(0);
     }
 
     _(text) {
