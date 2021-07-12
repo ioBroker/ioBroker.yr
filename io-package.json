@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "yr",
-        "version": "3.0.2",
+        "version": "3.0.3",
         "news": {
+            "3.0.3": {
+                "en": "prevent js-controller 3.3 warnings",
+                "de": "js-controller 3.3 Warnungen verhindern",
+                "ru": "предотвратить предупреждения js-controller 3.3",
+                "pt": "evitar avisos do js-controller 3.3",
+                "nl": "js-controller 3.3 waarschuwingen voorkomen",
+                "fr": "empêcher les avertissements js-controller 3.3",
+                "it": "prevenire gli avvisi di js-controller 3.3",
+                "es": "prevenir advertencias de js-controller 3.3",
+                "pl": "zapobiegaj ostrzeżeniom js-controller 3.3",
+                "zh-cn": "防止 js-controller 3.3 警告"
+            },
             "3.0.2": {
                 "en": "Fix crash issue from Sentry",
                 "de": "Absturzproblem von Sentry behoben",
