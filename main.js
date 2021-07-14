@@ -211,6 +211,8 @@ class Yr extends utils.Adapter {
             const hour_data = forecast['data'];
             const channel = hourDiff + 'h';
 
+            this.log.debug(`Process Forecast data ${channel}: ${JSON.stringify(hour_data)} `);
+
             await this.setObjectAsync(device + '.' + channel, {
                 type: 'channel',
                 common: {
@@ -252,8 +254,7 @@ class Yr extends utils.Adapter {
                         role: 'value',
                         read: true,
                         write: false,
-                        unit: unit,
-                        def: ''
+                        unit: unit
                     },
                     native: {},
                 });
@@ -310,8 +311,7 @@ class Yr extends utils.Adapter {
                                 role: 'value',
                                 read: true,
                                 write: false,
-                                unit: unit,
-                                def: ''
+                                unit: unit
                             },
                             native: {},
                         });
@@ -371,8 +371,7 @@ class Yr extends utils.Adapter {
                                 role: 'value',
                                 read: true,
                                 write: false,
-                                unit: unit,
-                                def: ''
+                                unit: unit
                             },
                             native: {},
                         });
@@ -432,8 +431,7 @@ class Yr extends utils.Adapter {
                                 role: 'value',
                                 read: true,
                                 write: false,
-                                unit: unit,
-                                def: ''
+                                unit: unit
                             },
                             native: {},
                         });
