@@ -37,7 +37,7 @@ Icons are taken from here [https://api.met.no/weatherapi/weathericon/2.0/documen
 
 ## Changelog
 
-### __WORK IN PROGRESS__
+### 3.0.4 (2021-07-16)
 * (Apollon77) prevent last js-controller 3.3 warnings
 
 ### 3.0.3 (2021-07-12)

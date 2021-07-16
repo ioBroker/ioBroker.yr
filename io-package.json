@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "yr",
-        "version": "3.0.3",
+        "version": "3.0.4",
         "news": {
+            "3.0.4": {
+                "en": "prevent last js-controller 3.3 warnings",
+                "de": "letzte js-controller 3.3 Warnungen verhindern",
+                "ru": "предотвратить последние предупреждения js-controller 3.3",
+                "pt": "evitar os últimos avisos do js-controller 3.3",
+                "nl": "voorkom laatste js-controller 3.3 waarschuwingen",
+                "fr": "empêcher les derniers avertissements js-controller 3.3",
+                "it": "prevenire gli ultimi avvisi di js-controller 3.3",
+                "es": "evitar las últimas advertencias de js-controller 3.3",
+                "pl": "zapobiegaj ostatnim ostrzeżeniom js-controller 3.3",
+                "zh-cn": "防止上次 js-controller 3.3 警告"
+            },
             "3.0.3": {
                 "en": "prevent js-controller 3.3 warnings",
                 "de": "js-controller 3.3 Warnungen verhindern",
