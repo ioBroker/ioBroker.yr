@@ -446,7 +446,14 @@ class Yr extends utils.Adapter {
     async updateData(data) {
         this.log.debug('Raw data: ' + JSON.stringify(data));
 
-        const legend = await this.client(LEGEND_URL).json();
+        let legend;
+        try {
+            legend = await this.client(LEGEND_URL).json();
+        } catch (err) {
+            this.log.info(`Error while requesting Legend data:  ${err.message}`);
+            this.log.info('Please check your settings!');
+            return;
+        }
 
         await this.updateForecast(data, legend);
         await this.updateHourlyForecast(data, legend);
@@ -454,17 +461,30 @@ class Yr extends utils.Adapter {
 
     async main() {
         let forecastParam = '';
-        if (this.config.latitude.length > 0 && this.config.longitude.length > 0) {
+        if (
+            this.config.latitude !== undefined && this.config.longitude !== undefined &&
+            this.config.latitude !== null && this.config.longitude !== null &&
+            this.config.latitude !== '' && this.config.longitude !== '' &&
+            !isNaN(this.config.latitude) && !isNaN(this.config.longitude)
+        ) {
             forecastParam += `?lat=${this.config.latitude}&lon=${this.config.longitude}`;
-            if (this.config.altitude.length > 0) {
+            if (this.config.altitude !== undefined && !isNaN(this.config.altitude) && this.config.altitude !== '') {
                 forecastParam += '&altitude=' + this.config.altitude;
             }
 
             const method = this.config.compact ? 'compact' : 'complete';
             const url = BASE_FORECAST_URL + method + forecastParam;
             this.log.debug('Get forecast from: ' + url);
-            const response = await this.client(url).json();
-            await this.updateData(response);
+            let response;
+            try {
+                response = await this.client(url).json();
+            } catch (err) {
+                this.log.info(`Error while requesting data:  ${err.message}`);
+                this.log.info('Please check your settings!');
+            }
+            if (response) {
+                await this.updateData(response);
+            }
 
             this.log.info('Data updated.');
         } else {
