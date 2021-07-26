@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "yr",
-        "version": "3.0.4",
+        "version": "3.0.5",
         "news": {
+            "3.0.5": {
+                "en": "prevent calls and other errors to Yr when no location is defined",
+                "de": "Anrufe und andere Fehler an Yr verhindern, wenn kein Standort definiert ist",
+                "ru": "предотвращать звонки и другие ошибки в Yr, когда местоположение не определено",
+                "pt": "evitar chamadas e outros erros para o ano quando nenhum local estiver definido",
+                "nl": "voorkom oproepen en andere fouten naar Yr wanneer er geen locatie is gedefinieerd",
+                "fr": "empêcher les appels et autres erreurs à Yr lorsqu'aucun emplacement n'est défini",
+                "it": "prevenire chiamate e altri errori a Yr quando non è definita alcuna posizione",
+                "es": "evitar llamadas y otros errores a Yr cuando no se define ninguna ubicación",
+                "pl": "zapobiegaj wywołaniom i innym błędom do Yr, gdy nie określono lokalizacji location",
+                "zh-cn": "在未定义位置时防止对 Yr 的调用和其他错误"
+            },
             "3.0.4": {
                 "en": "prevent last js-controller 3.3 warnings",
                 "de": "letzte js-controller 3.3 Warnungen verhindern",
