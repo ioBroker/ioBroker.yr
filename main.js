@@ -223,7 +223,7 @@ class Yr extends utils.Adapter {
                 native: {},
             });
 
-            await this.extendObjectAsync(deviceName, {
+            await this.extendObjectAsync(device + '.' + channel, {
                 common: {
                     name: 'in ' + channel + ' (' + dateObj.getHours() + ':00)',
                 }
