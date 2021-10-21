@@ -16,7 +16,7 @@ systemDictionary = {
     },
     "Latitude (uses system config if empty)": {
         "en": "Latitude (uses system config if empty)",
-        "de": "Breitengrad (verwendet die Systemkonfiguration, wenn leer)",
+        "de": "Breitengrad (verwendet Systemkonfiguration, wenn leer)",
         "ru": "Широта (использует системную конфигурацию, если она пуста)",
         "pt": "Latitude (usa configuração do sistema se estiver vazio)",
         "nl": "Latitude (gebruikt systeemconfiguratie indien leeg)",
@@ -40,7 +40,7 @@ systemDictionary = {
     },
     "Altitude (uses system config if empty)": {
         "en": "Altitude (uses system config if empty)",
-        "de": "Höhe (verwendet die Systemkonfiguration, wenn leer)",
+        "de": "Höhe (verwendet Systemkonfiguration, wenn leer)",
         "ru": "Высота (использует системную конфигурацию, если она пуста)",
         "pt": "Altitude (usa a configuração do sistema se estiver vazio)",
         "nl": "Hoogte (gebruikt systeemconfiguratie indien leeg)",

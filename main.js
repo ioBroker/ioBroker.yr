@@ -163,6 +163,13 @@ class Yr extends utils.Adapter {
             },
             native: {},
         });
+        // Update existing
+        this.extendObjectAsync(base_state_path + 'updated_at', {
+            common: {
+                type: 'number',
+                role: 'date'
+            }
+        });
         await this.setStateAsync(base_state_path + 'updated_at', updated_at.getTime(), true);
 
         //TODO Generate Daily Forecast
@@ -243,6 +250,13 @@ class Yr extends utils.Adapter {
                     def: ''
                 },
                 native: {},
+            });
+            // Update existing
+            this.extendObjectAsync(base_state_path + 'time', {
+                common: {
+                    type: 'number',
+                    role: 'date'
+                }
             });
             await this.setStateAsync(base_state_path + 'time', time, true);
 
