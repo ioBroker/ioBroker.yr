@@ -2,10 +2,112 @@
 'use strict';
 
 systemDictionary = {
-    "Language": {                                    "en": "Language",                                        "de": "Sprache",                                         "ru": "Язык",                                            "pt": "Língua",                                          "nl": "Taal",                                            "fr": "La langue",                                       "it": "linguaggio",                                      "es": "Idioma",                                          "pl": "Język",                                           "zh-cn": "语"},
-    "Place": {                                       "en": "Place",                                           "de": "Ort",                                             "ru": "Место",                                           "pt": "Lugar, colocar",                                  "nl": "Plaats",                                          "fr": "Endroit",                                         "it": "Posto",                                           "es": "Lugar",                                           "pl": "Miejsce",                                         "zh-cn": "地方"},
-    "Send missing translations to iobroker.net": {   "en": "Send missing translations to iobroker.net",       "de": "Fehlende Übersetzungen an iobroker.net senden",   "ru": "Отправить недостающие переводы на iobroker.net",  "pt": "Envie traduções faltando para iobroker.net",      "nl": "Verzend ontbrekende vertalingen naar iobroker.net", "fr": "Envoyer des traductions manquantes à iobroker.net", "it": "Invia traduzioni mancanti a iobroker.net",        "es": "Envía traducciones faltantes a iobroker.net",     "pl": "Wyślij brakujące tłumaczenia do iobroker.net",    "zh-cn": "将丢失的翻译发送到 iobroker.net"},
-    "Use english metric system": {                   "en": "Use english metric system(°F, miles)",            "de": "Metrisches System verwenden (°F, Meilen)",        "ru": "Используйте английскую метрическую систему (°F, мили)", "pt": "Use o sistema métrico inglês (°F, milhas)",       "nl": "Gebruik het Engelse metrische systeem (°F, mijl)", "fr": "Utiliser le système métrique anglais (°F, miles)", "it": "Usa il sistema metrico inglese (°F, miglia)",     "es": "Utilice el sistema métrico inglés (°F, millas)",  "pl": "Użyj angielskiego systemu metrycznego (°F, mile)", "zh-cn": "使用英制（°F，英里）"},
-    "yr.no adapter settings": {                      "en": "yr.no adapter settings",                          "de": "Yr.no Adaptereinstellungen",                      "ru": "Настройки адаптера yr.no",                        "pt": "yr.no configurações do adaptador",                "nl": "yr.no adapter-instellingen",                      "fr": "yr.no paramètres de la carte",                    "it": "yr.no impostazioni della scheda",                 "es": "configuración del adaptador yr.no",               "pl": "yr.no ustawienia adaptera",                       "zh-cn": "yr.no 适配器设置"},
-    "yrDescription": {                               "en": "<a href=\"http://www.yr.no/\" target=\"_blank\">yr.no</a> is a joint service by the <a                href=\"http://met.no/\" target=\"_blank\">Norwegian Meteorological Institute</a> and the     <a href=\"http://www.nrk.no\" target=\"_blank\">Norwegian Broadcasting Corporation</a>", "de": "<a href=\"http://www.yr.no/\" target=\"_blank\">yr.no</a> ist ein gemeinsamer Service des <a          href=\"http://met.no/\" target=\"_blank\">Norwegischen Meteorologischen Institut</a> und der<a href=\"http://www.nrk.no\" target=\"_blank\">Norwegische Rundfunkgesellschaft</a>", "ru": "<a href=\"http://www.yr.no/\" target=\"_blank\">yr.no</a> является совместным сервисом с помощью <a   href=\"http://met.no/\" target=\"_blank\">Норвежский метеорологический институт</a> и        <a href=\"http://www.nrk.no\" target=\"_blank\">Норвежская вещательная корпорация</a>", "pt": "<a href=\"http://www.yr.no/\" target=\"_blank\">yr.no</a> é um serviço conjunto da <a                 href=\"http://met.no/\" target=\"_blank\">Instituto Meteorológico Norueguês</a> e a          <a href=\"http://www.nrk.no\" target=\"_blank\">Corporação Norueguesa de Radiodifusão</a>", "nl": "<a href=\"http://www.yr.no/\" target=\"_blank\">yr.no</a> is een gezamenlijke service van het doel <a href=\"http://met.no/\" target=\"_blank\">Norwegian Meteorological Institute</a> en de       <a href=\"http://www.nrk.no\" target=\"_blank\">Norwegian Broadcasting Corporation</a>", "fr": "<a href=\"http://www.yr.no/\" target=\"_blank\">yr.no</a> est un service commun de la cible <a        href=\"http://met.no/\" target=\"_blank\">Norwegian Meteorological Institute</a> et          <a href=\"http://www.nrk.no\" target=\"_blank\">Norwegian Broadcasting Corporation</a>", "it": "<a href=\"http://www.yr.no/\" target=\"_blank\">yr.no</a> è un servizio comune di <a                  href=\"http://met.no/\" target=\"_blank\">Norwegian Meteorological Institute</a> e           <a href=\"http://www.nrk.no\" target=\"_blank\">Norwegian Broadcasting Corporation</a>", "es": "<a href=\"http://www.yr.no/\" target=\"_blank\">yr.no</a> es un servicio conjunto del objetivo <a     href=\"http://met.no/\" target=\"_blank\">Norwegian Meteorological Institute</a> y la        <a href=\"http://www.nrk.no\" target=\"_blank\">Corporación noruega de radiodifusión</a>", "pl": "<a href=\"http://www.yr.no/\" target=\"_blank\">yr.no</a> to usługa wspólna według celu <a            href=\"http://met.no/\" target=\"_blank\">Norweski Instytut Meteorologiczny</a> i            <a href=\"http://www.nrk.no\" target=\"_blank\">Norweska korporacja radiowa</a>", "zh-cn": "<a href=\"http://www.yr.no/\" target=\"_blank\">yr.no</a> 是 <a href=\"http://met.no/\" 目标的联合服务"},
+    "Location": {
+        "en": "Location",
+        "de": "Standort",
+        "ru": "Место нахождения",
+        "pt": "Localização",
+        "nl": "Plaats",
+        "fr": "Emplacement",
+        "it": "Posizione",
+        "es": "Localización",
+        "pl": "Lokalizacja",
+        "zh-cn": "地点"
+    },
+    "Latitude (uses system config if empty)": {
+        "en": "Latitude (uses system config if empty)",
+        "de": "Breitengrad (verwendet die Systemkonfiguration, wenn leer)",
+        "ru": "Широта (использует системную конфигурацию, если она пуста)",
+        "pt": "Latitude (usa configuração do sistema se estiver vazio)",
+        "nl": "Latitude (gebruikt systeemconfiguratie indien leeg)",
+        "fr": "Latitude (utilise la configuration système si vide)",
+        "it": "Latitude (usa la configurazione di sistema se vuoto)",
+        "es": "Latitud (usa la configuración del sistema si está vacío)",
+        "pl": "Współrzędne (używa konfiguracji systemu, jeśli jest pusta)",
+        "zh-cn": "纬度（如果为空，则使用系统配置）"
+    },
+    "Longitude (uses system config if empty)": {
+        "en": "Longitude (uses system config if empty)",
+        "de": "Längengrad (verwendet Systemkonfiguration, wenn leer)",
+        "ru": "Долгота (использует системную конфигурацию, если она пуста)",
+        "pt": "Longitude (usa configuração do sistema se estiver vazio)",
+        "nl": "Lengtegraad (gebruikt systeemconfiguratie indien leeg)",
+        "fr": "Longitude (utilise la configuration système si vide)",
+        "it": "Longitudine (usa la configurazione di sistema se vuoto)",
+        "es": "Longitud (usa la configuración del sistema si está vacío)",
+        "pl": "Długość geograficzna (używa konfiguracji systemu, jeśli jest pusta)",
+        "zh-cn": "经度（如果为空，则使用系统配置）"
+    },
+    "Altitude (uses system config if empty)": {
+        "en": "Altitude (uses system config if empty)",
+        "de": "Höhe (verwendet die Systemkonfiguration, wenn leer)",
+        "ru": "Высота (использует системную конфигурацию, если она пуста)",
+        "pt": "Altitude (usa a configuração do sistema se estiver vazio)",
+        "nl": "Hoogte (gebruikt systeemconfiguratie indien leeg)",
+        "fr": "Altitude (utilise la configuration système si vide)",
+        "it": "Altitudine (usa la configurazione di sistema se vuoto)",
+        "es": "Altitud (usa la configuración del sistema si está vacío)",
+        "pl": "Wysokość (używa konfiguracji systemu, jeśli jest pusta)",
+        "zh-cn": "海拔高度（如果为空，则使用系统配置）"
+    },
+    "Comfort settings": {
+        "en": "Comfort settings",
+        "de": "Komforteinstellungen",
+        "ru": "Настройки комфорта",
+        "pt": "Configurações de conforto",
+        "nl": "Comfort instellingen",
+        "fr": "Paramètres de confort",
+        "it": "Impostazioni comfort",
+        "es": "Configuraciones de confort",
+        "pl": "Ustawienia komfortu",
+        "zh-cn": "舒适度设置"
+    },
+    "Compact": {
+        "en": "Compact",
+        "de": "Kompakt",
+        "ru": "Компактный",
+        "pt": "Compactar",
+        "nl": "Compact",
+        "fr": "Compact",
+        "it": "Compatto",
+        "es": "Compacto",
+        "pl": "Kompaktowy",
+        "zh-cn": "袖珍的"
+    },
+    "Language": {
+        "en": "Language",
+        "de": "Sprache",
+        "ru": "Язык",
+        "pt": "Língua",
+        "nl": "Taal",
+        "fr": "La langue",
+        "it": "linguaggio",
+        "es": "Idioma",
+        "pl": "Język",
+        "zh-cn": "语"
+    },
+    "Advanced settings": {
+        "en": "Advanced settings",
+        "de": "Erweiterte Einstellungen",
+        "ru": "Расширенные настройки",
+        "pt": "Configurações avançadas",
+        "nl": "Geavanceerde instellingen",
+        "fr": "Réglages avancés",
+        "it": "Impostazioni avanzate",
+        "es": "Ajustes avanzados",
+        "pl": "Zaawansowane ustawienia",
+        "zh-cn": "高级设置"
+    },
+    "Send Translations": {
+        "en": "Send missing translations to iobroker.net",
+        "de": "Fehlende Übersetzungen an iobroker.net senden",
+        "ru": "Отправить недостающие переводы на iobroker.net",
+        "pt": "Envie traduções faltando para iobroker.net",
+        "nl": "Verzend ontbrekende vertalingen naar iobroker.net",
+        "fr": "Envoyer des traductions manquantes à iobroker.net",
+        "it": "Invia traduzioni mancanti a iobroker.net",
+        "es": "Envía traducciones faltantes a iobroker.net",
+        "pl": "Wyślij brakujące tłumaczenia do iobroker.net",
+        "zh-cn": "将丢失的翻译发送到 iobroker.net"
+    }
 };
