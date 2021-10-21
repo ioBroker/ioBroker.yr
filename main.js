@@ -155,15 +155,15 @@ class Yr extends utils.Adapter {
             common: {
                 name: 'Forecast update time',
                 desc: '',
-                type: 'string',
-                role: 'text',
+                type: 'number',
+                role: 'date',
                 read: true,
                 write: false,
                 def: ''
             },
             native: {},
         });
-        await this.setStateAsync(base_state_path + 'updated_at', updated_at.toString(), true);
+        await this.setStateAsync(base_state_path + 'updated_at', updated_at.getTime(), true);
 
         //TODO Generate Daily Forecast
         //TODO Generate Forecast Table
@@ -204,7 +204,8 @@ class Yr extends utils.Adapter {
 
         for (let i in timeseries) {
             const forecast = timeseries[i];
-            const time = new Date(forecast['time']).getTime();
+            const dateObj = new Date(forecast['time']);
+            const time = dateObj.getTime();
             let hourDiff = Math.ceil((time - now) / (1000 * 60 * 60));
             hourDiff = hourDiff === -0 ? 0 : hourDiff;
 
@@ -221,6 +222,13 @@ class Yr extends utils.Adapter {
                 },
                 native: {},
             });
+
+            await this.extendObjectAsync(deviceName, {
+                common: {
+                    name: 'in ' + channel + ' (' + dateObj.getHours() + ':00)',
+                }
+            });
+
             const base_state_path = device + '.' + channel + '.';
 
             await this.setObjectNotExistsAsync(base_state_path + 'time', {
@@ -228,15 +236,15 @@ class Yr extends utils.Adapter {
                 common: {
                     name: 'time',
                     desc: '',
-                    type: 'string',
-                    role: 'text',
+                    type: 'number',
+                    role: 'date',
                     read: true,
                     write: false,
                     def: ''
                 },
                 native: {},
             });
-            await this.setStateAsync(base_state_path + 'time', time.toString(), true);
+            await this.setStateAsync(base_state_path + 'time', time, true);
 
             //Instant
             for (const key in hour_data['instant']['details']) {
