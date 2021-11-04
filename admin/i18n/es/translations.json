@@ -1,8 +1,11 @@
 {
+    "Advanced settings": "Ajustes avanzados",
+    "Altitude (uses system config if empty)": "Altitud (usa la configuración del sistema si está vacío)",
+    "Comfort settings": "Configuraciones de confort",
+    "Compact": "Compacto",
     "Language": "Idioma",
-    "Place": "Lugar",
-    "Send missing translations to iobroker.net": "Envía traducciones faltantes a iobroker.net",
-    "Use english metric system": "Utilice el sistema métrico inglés (°F, millas)",
-    "yr.no adapter settings": "configuración del adaptador yr.no",
-    "yrDescription": "<a href=\"http://www.yr.no/\" target=\"_blank\">yr.no</a> es un servicio conjunto del objetivo <a     href=\"http://met.no/\" target=\"_blank\">Norwegian Meteorological Institute</a> y la        <a href=\"http://www.nrk.no\" target=\"_blank\">Corporación noruega de radiodifusión</a>"
+    "Latitude (uses system config if empty)": "Latitud (usa la configuración del sistema si está vacío)",
+    "Location": "Localización",
+    "Longitude (uses system config if empty)": "Longitud (usa la configuración del sistema si está vacío)",
+    "Send Translations": "Envía traducciones faltantes a iobroker.net"
 }

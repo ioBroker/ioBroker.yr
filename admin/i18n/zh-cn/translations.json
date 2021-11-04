@@ -1,8 +1,11 @@
 {
+    "Advanced settings": "高级设置",
+    "Altitude (uses system config if empty)": "海拔高度（如果为空，则使用系统配置）",
+    "Comfort settings": "舒适度设置",
+    "Compact": "袖珍的",
     "Language": "语",
-    "Place": "地方",
-    "Send missing translations to iobroker.net": "将丢失的翻译发送到 iobroker.net",
-    "Use english metric system": "使用英制（°F，英里）",
-    "yr.no adapter settings": "yr.no 适配器设置",
-    "yrDescription": "<a href=\"http://www.yr.no/\" target=\"_blank\">yr.no</a> 是 <a href=\"http://met.no/\" 目标的联合服务"
+    "Latitude (uses system config if empty)": "纬度（如果为空，则使用系统配置）",
+    "Location": "地点",
+    "Longitude (uses system config if empty)": "经度（如果为空，则使用系统配置）",
+    "Send Translations": "将丢失的翻译发送到 iobroker.net"
 }
