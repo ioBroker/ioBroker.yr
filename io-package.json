@@ -165,5 +165,18 @@
         "compact": true
     },
     "objects": [],
-    "instanceObjects": []
+    "instanceObjects": [
+        {
+            "_id": "version",
+            "type": "state",
+            "common": {
+                "name": "Version",
+                "type": "string",
+                "role": "value",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        }
+    ]
 }

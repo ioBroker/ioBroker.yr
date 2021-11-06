@@ -25,6 +25,8 @@ class Yr extends utils.Adapter {
         this.on('ready', this.onReady.bind(this));
         this.on('unload', this.onUnload.bind(this));
 
+        this.runObjectUpdates = false;
+
         this.client = got.extend({
             headers: {
                 'user-agent': `ioBroker.yr/${pjson.version} github.com/ioBroker/ioBroker.yr`
@@ -61,6 +63,19 @@ class Yr extends utils.Adapter {
         }
         if (this.config.sendTranslations === 'false') {
             this.config.sendTranslations = false;
+        }
+
+        try {
+            const prevVersion = await this.getStateAsync('version') || {val: '0.0.1'};
+            this.log.debug('Configured version: ' + JSON.stringify(prevVersion));
+            if (this.isNewerVersion(prevVersion.val, this.version)) {
+                this.log.info('Newer version detected! Updating objects');
+                this.runObjectUpdates = true;
+
+                await this.setStateAsync('version', this.version, true);
+            }
+        } catch (ex) {
+            this.log.error(ex);
         }
 
         // Force terminate after 5min
@@ -163,13 +178,17 @@ class Yr extends utils.Adapter {
             },
             native: {},
         });
+
         // Update existing
-        this.extendObjectAsync(base_state_path + 'updated_at', {
-            common: {
-                type: 'number',
-                role: 'date'
-            }
-        });
+        if (this.runObjectUpdates) {
+            this.extendObjectAsync(base_state_path + 'updated_at', {
+                common: {
+                    type: 'number',
+                    role: 'date'
+                }
+            });
+        }
+
         await this.setStateAsync(base_state_path + 'updated_at', updated_at.getTime(), true);
 
         //TODO Generate Daily Forecast
@@ -228,12 +247,6 @@ class Yr extends utils.Adapter {
                     role: 'weather'
                 },
                 native: {},
-            });
-
-            await this.extendObjectAsync(device + '.' + channel, {
-                common: {
-                    name: 'in ' + channel + ' (' + dateObj.getHours() + ':00)',
-                }
             });
 
             const base_state_path = device + '.' + channel + '.';
@@ -512,6 +525,18 @@ class Yr extends utils.Adapter {
         } else {
             this.log.error('Longitude or Latitude not set correctly.');
         }
+    }
+
+    isNewerVersion(oldVer, newVer) {
+        const oldParts = oldVer.split('.');
+        const newParts = newVer.split('.');
+        for (var i = 0; i < newParts.length; i++) {
+            const a = ~~newParts[i]; // parse int
+            const b = ~~oldParts[i]; // parse int
+            if (a > b) return true;
+            if (a < b) return false;
+        }
+        return false;
     }
 }
 
