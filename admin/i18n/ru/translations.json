@@ -1,11 +1,13 @@
 {
     "Advanced settings": "Расширенные настройки",
-    "Altitude (uses system config if empty)": "Высота (использует системную конфигурацию, если она пуста)",
+    "Altitude": "Высота",
     "Comfort settings": "Настройки комфорта",
     "Compact": "Компактный",
     "Language": "Язык",
-    "Latitude (uses system config if empty)": "Широта (использует системную конфигурацию, если она пуста)",
+    "Latitude": "Широта",
     "Location": "Место нахождения",
-    "Longitude (uses system config if empty)": "Долгота (использует системную конфигурацию, если она пуста)",
-    "Send Translations": "Отправить недостающие переводы на iobroker.net"
+    "Longitude": "Долгота",
+    "Options": "Настройки",
+    "Send Translations": "Отправить недостающие переводы на iobroker.net",
+    "uses system config if empty": "использует системную конфигурацию, если она пуста"
 }

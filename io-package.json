@@ -133,7 +133,7 @@
         ],
         "compact": true,
         "adminUI": {
-            "config": "materialize"
+            "config": "json"
         },
         "connectionType": "cloud",
         "dataSource": "poll",

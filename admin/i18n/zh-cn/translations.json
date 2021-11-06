@@ -1,11 +1,13 @@
 {
     "Advanced settings": "高级设置",
-    "Altitude (uses system config if empty)": "海拔高度（如果为空，则使用系统配置）",
+    "Altitude": "高度",
     "Comfort settings": "舒适度设置",
     "Compact": "袖珍的",
     "Language": "语",
-    "Latitude (uses system config if empty)": "纬度（如果为空，则使用系统配置）",
+    "Latitude": "纬度",
     "Location": "地点",
-    "Longitude (uses system config if empty)": "经度（如果为空，则使用系统配置）",
-    "Send Translations": "将丢失的翻译发送到 iobroker.net"
+    "Longitude": "经度",
+    "Options": "选项",
+    "Send Translations": "将丢失的翻译发送到 iobroker.net",
+    "uses system config if empty": "如果为空，则使用系统配置"
 }

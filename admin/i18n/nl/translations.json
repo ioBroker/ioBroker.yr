@@ -1,11 +1,13 @@
 {
     "Advanced settings": "Geavanceerde instellingen",
-    "Altitude (uses system config if empty)": "Hoogte (gebruikt systeemconfiguratie indien leeg)",
+    "Altitude": "Hoogte",
     "Comfort settings": "Comfort instellingen",
     "Compact": "Compact",
     "Language": "Taal",
-    "Latitude (uses system config if empty)": "Latitude (gebruikt systeemconfiguratie indien leeg)",
+    "Latitude": "Breedtegraad",
     "Location": "Plaats",
-    "Longitude (uses system config if empty)": "Lengtegraad (gebruikt systeemconfiguratie indien leeg)",
-    "Send Translations": "Verzend ontbrekende vertalingen naar iobroker.net"
+    "Longitude": "Lengtegraad",
+    "Options": "opties",
+    "Send Translations": "Verzend ontbrekende vertalingen naar iobroker.net",
+    "uses system config if empty": "gebruikt systeemconfiguratie indien leeg"
 }

@@ -1,11 +1,13 @@
 {
     "Advanced settings": "Impostazioni avanzate",
-    "Altitude (uses system config if empty)": "Altitudine (usa la configurazione di sistema se vuoto)",
+    "Altitude": "Altitudine",
     "Comfort settings": "Impostazioni comfort",
     "Compact": "Compatto",
     "Language": "linguaggio",
-    "Latitude (uses system config if empty)": "Latitude (usa la configurazione di sistema se vuoto)",
+    "Latitude": "Latitudine",
     "Location": "Posizione",
-    "Longitude (uses system config if empty)": "Longitudine (usa la configurazione di sistema se vuoto)",
-    "Send Translations": "Invia traduzioni mancanti a iobroker.net"
+    "Longitude": "Longitudine",
+    "Options": "Opzioni",
+    "Send Translations": "Invia traduzioni mancanti a iobroker.net",
+    "uses system config if empty": "usa la configurazione di sistema se vuoto"
 }
