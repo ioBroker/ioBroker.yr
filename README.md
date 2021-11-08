@@ -36,8 +36,7 @@ Icons are taken from here [https://api.met.no/weatherapi/weathericon/2.0/documen
 -->
 
 ## Changelog
-
-### 4.0.0 (2021-10-21)
+### __WORK IN PROGRESS__
 * (klein0r) Fixed translations
 * (klein0r) Update dates data type
 
@@ -142,7 +141,7 @@ Icons are taken from here [https://api.met.no/weatherapi/weathericon/2.0/documen
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2014-2021 hobbyquaker <hq@ccu.io>, Bluefox
+Copyright (c) 2014-2021 hobbyquaker <hq@ccu.io>, Bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

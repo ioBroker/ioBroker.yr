@@ -5,7 +5,7 @@ const got = require('got');
 const http = require('http');
 const utils = require('@iobroker/adapter-core'); // Get common adapter utils
 
-const pjson = require('./package.json');
+const packJson = require('./package.json');
 const dictionary = require('./lib/words');
 
 const LEGEND_URL = 'https://api.met.no/weatherapi/weathericon/2.0/legends';
@@ -29,7 +29,7 @@ class Yr extends utils.Adapter {
 
         this.client = got.extend({
             headers: {
-                'user-agent': `ioBroker.yr/${pjson.version} github.com/ioBroker/ioBroker.yr`
+                'user-agent': `ioBroker.yr/${packJson.version} github.com/ioBroker/ioBroker.yr`
             }
         });
     }
@@ -113,14 +113,14 @@ class Yr extends utils.Adapter {
                 };
                 const req = http.request(options, res => {
                     console.log('STATUS: ' + res.statusCode);
-                    this.log.info('Missing translation sent to iobroker.net: "' + text + '"');
+                    this.log.info(`Missing translation sent to iobroker.net: "${text}"`);
                 });
                 req.on('error', e => {
-                    this.log.error('Cannot send to server missing translation for "' + text + '": ' + e.message);
+                    this.log.error(`Cannot send to server missing translation for "${text}": ${e.message}`);
                 });
                 req.end();
             } else {
-                this.log.warn('Translate: "' + text + '": {"en": "' + text + '", "de": "' + text + '", "ru": "' + text + '"}, please send to developer');
+                this.log.warn(`Translate: "${text}": {"en": "${text}", "de": "${text}", "ru": "${text}"}, please send to developer`);
             }
         }
         return text;
@@ -372,7 +372,7 @@ class Yr extends utils.Adapter {
                     },
                     native: {},
                 });
-                await this.setStateAsync(base_state_path + '6h_summary_symbol', '/adapter/yr/icons/' + summary6h + '.svg', true);
+                await this.setStateAsync(base_state_path + '6h_summary_symbol', `/adapter/yr/icons/${summary6h}.svg`, true);
 
                 if (summary6h.split('_')[0] in legend) {
                     await this.setObjectNotExistsAsync(base_state_path + '6h_summary_text', {
@@ -454,8 +454,8 @@ class Yr extends utils.Adapter {
                     for (const key in hour_data['next_12_hours']['details']) {
                         let unit = key in units ? units[key] : '';
                         const value = hour_data['next_12_hours']['details'][key];
-                        unit = unit === "celsius" ? '°C' : unit;
-                        unit = unit === "degrees" ? '°' : unit;
+                        unit = unit === 'celsius' ? '°C' : unit;
+                        unit = unit === 'degrees' ? '°' : unit;
 
                         await this.setObjectNotExistsAsync(base_state_path + '12h_' + key, {
                             type: 'state',
