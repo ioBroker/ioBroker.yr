@@ -1,182 +1,182 @@
 {
-    "common": {
-        "name": "yr",
-        "version": "4.0.0",
-        "news": {
-            "4.0.0": {
-                "en": "Update dates data type",
-                "de": "Datumsdatentyp aktualisieren",
-                "ru": "Тип данных даты обновления",
-                "pt": "Atualizar tipo de dados de datas",
-                "nl": "Datatype updaten",
-                "fr": "Mettre à jour le type de données des dates",
-                "it": "Aggiorna il tipo di dati delle date",
-                "es": "Actualizar el tipo de datos de fechas",
-                "pl": "Zaktualizuj typ danych dat",
-                "zh-cn": "更新日期数据类型"
-            },
-            "3.0.5": {
-                "en": "prevent calls and other errors to Yr when no location is defined",
-                "de": "Anrufe und andere Fehler an Yr verhindern, wenn kein Standort definiert ist",
-                "ru": "предотвращать звонки и другие ошибки в Yr, когда местоположение не определено",
-                "pt": "evitar chamadas e outros erros para o ano quando nenhum local estiver definido",
-                "nl": "voorkom oproepen en andere fouten naar Yr wanneer er geen locatie is gedefinieerd",
-                "fr": "empêcher les appels et autres erreurs à Yr lorsqu'aucun emplacement n'est défini",
-                "it": "prevenire chiamate e altri errori a Yr quando non è definita alcuna posizione",
-                "es": "evitar llamadas y otros errores a Yr cuando no se define ninguna ubicación",
-                "pl": "zapobiegaj wywołaniom i innym błędom do Yr, gdy nie określono lokalizacji location",
-                "zh-cn": "在未定义位置时防止对 Yr 的调用和其他错误"
-            },
-            "3.0.4": {
-                "en": "prevent last js-controller 3.3 warnings",
-                "de": "letzte js-controller 3.3 Warnungen verhindern",
-                "ru": "предотвратить последние предупреждения js-controller 3.3",
-                "pt": "evitar os últimos avisos do js-controller 3.3",
-                "nl": "voorkom laatste js-controller 3.3 waarschuwingen",
-                "fr": "empêcher les derniers avertissements js-controller 3.3",
-                "it": "prevenire gli ultimi avvisi di js-controller 3.3",
-                "es": "evitar las últimas advertencias de js-controller 3.3",
-                "pl": "zapobiegaj ostatnim ostrzeżeniom js-controller 3.3",
-                "zh-cn": "防止上次 js-controller 3.3 警告"
-            },
-            "3.0.3": {
-                "en": "prevent js-controller 3.3 warnings",
-                "de": "js-controller 3.3 Warnungen verhindern",
-                "ru": "предотвратить предупреждения js-controller 3.3",
-                "pt": "evitar avisos do js-controller 3.3",
-                "nl": "js-controller 3.3 waarschuwingen voorkomen",
-                "fr": "empêcher les avertissements js-controller 3.3",
-                "it": "prevenire gli avvisi di js-controller 3.3",
-                "es": "prevenir advertencias de js-controller 3.3",
-                "pl": "zapobiegaj ostrzeżeniom js-controller 3.3",
-                "zh-cn": "防止 js-controller 3.3 警告"
-            },
-            "3.0.2": {
-                "en": "Fix crash issue from Sentry",
-                "de": "Absturzproblem von Sentry behoben",
-                "ru": "Устранить проблему сбоя из Sentry",
-                "pt": "Corrigir problema de travamento do Sentry",
-                "nl": "Crashprobleem van Sentry oplossen",
-                "fr": "Résoudre le problème de plantage de Sentry",
-                "it": "Risolto il problema di arresto anomalo di Sentry",
-                "es": "Solucionar problema de bloqueo de Sentry",
-                "pl": "Napraw problem z awarią z Sentry",
-                "zh-cn": "修复 Sentry 的崩溃问题"
-            },
-            "3.0.1": {
-                "en": "Optimizations and Fixes\nAdd Sentry crash reporting",
-                "de": "Optimierungen und Fixes\nSentry-Absturzberichte hinzufügen",
-                "ru": "Оптимизация и исправления\nДобавить отчет о сбоях Sentry",
-                "pt": "Otimizações e correções\nAdicionar relatório de falha do Sentry",
-                "nl": "Optimalisaties en oplossingen\nSentry-crashrapportage toevoegen",
-                "fr": "Optimisations et correctifs\nAjouter un rapport de plantage Sentry",
-                "it": "Ottimizzazioni e correzioni\nAggiungi segnalazione di arresto anomalo di Sentry",
-                "es": "Optimizaciones y correcciones\nAgregar informe de fallas de Sentry",
-                "pl": "Optymalizacje i poprawki\nDodaj raport o awariach Sentry",
-                "zh-cn": "优化和修复\n添加哨兵崩溃报告"
-            },
-            "3.0.0": {
-                "en": "Switch to new JSON API",
-                "de": "Wechseln Sie zur neuen JSON-API",
-                "ru": "Перейти на новый JSON API",
-                "pt": "Mudar para a nova API JSON",
-                "nl": "Schakel over naar nieuwe JSON API",
-                "fr": "Passer à la nouvelle API JSON",
-                "it": "Passa alla nuova API JSON",
-                "es": "Cambiar a la nueva API JSON",
-                "pl": "Przejdź do nowego interfejsu API JSON",
-                "zh-cn": "切换到新的JSON API"
-            }
-        },
-        "title": "yr.no",
-        "titleLang": {
-            "en": "yr.no weather",
-            "de": "yr.no Wetter",
-            "ru": "yr.no погода",
-            "pt": "yr.no tempo",
-            "nl": "yr.nr weer",
-            "fr": "yr.no météo",
-            "it": "anno vecchio",
-            "es": "yr.no tiempo",
-            "pl": "yr.no pogody",
-            "zh-cn": "yr.no天气"
-        },
-        "desc": {
-            "en": "10d weather forecast from yr.no",
-            "de": "10 Tage Wettervorhersage von yr.no",
-            "ru": "Получает прогноз погоды на 10d с yr.no",
-            "pt": "Fetches 10d previsão do tempo a partir de yr.no",
-            "nl": "Haal 10d weersvoorspelling op van yr.no",
-            "fr": "Fetchs 10d météo de yr.no",
-            "it": "Calcola le previsioni del tempo a 10 ore dall'anno n",
-            "es": "Obtiene 10d pronóstico del tiempo de yr.no",
-            "pl": "Pobiera 10-godzinną prognozę pogody z yr.no",
-            "zh-cn": "从 yr.no 获取 10d 天气预报"
-        },
-        "authors": [
-            "hobbyquaker <hq@ccu.io>"
-        ],
-        "license": "MIT",
-        "platform": "Javascript/Node.js",
-        "mode": "schedule",
-        "schedule": "6 * * * *",
-        "enabled": true,
-        "loglevel": "info",
-        "materialize": true,
-        "keywords": [
-            "weather",
-            "forecast",
-            "temperature",
-            "rain",
-            "yr",
-            "meteorology"
-        ],
-        "compact": true,
-        "adminUI": {
-            "config": "json"
-        },
-        "connectionType": "cloud",
-        "dataSource": "poll",
-        "tier": 2,
-        "icon": "yr.png",
-        "extIcon": "https://raw.githubusercontent.com/ioBroker/ioBroker.yr/master/admin/yr.png",
-        "readme": "https://github.com/ioBroker/ioBroker.yr/blob/master/README.md",
-        "allowInit": true,
-        "type": "weather",
-        "dependencies": [
-            {
-                "js-controller": ">=3.3.0"
-            }
-        ],
-        "plugins": {
-            "sentry": {
-                "dsn": "https://696e8a28848042c288d68172bca32737@sentry.iobroker.net/140"
-            }
-        }
+  "common": {
+    "name": "yr",
+    "version": "5.0.0",
+    "news": {
+      "5.0.0": {
+        "en": "Fixed translations\nUpdate dates data type",
+        "de": "Feste Übersetzungen\nDatumsdatentyp aktualisieren",
+        "ru": "Исправленные переводы\nТип данных даты обновления",
+        "pt": "Traduções fixas\nAtualizar tipo de dados de datas",
+        "nl": "Vaste vertalingen\nDatatype updaten",
+        "fr": "Traductions fixes\nMettre à jour le type de données des dates",
+        "it": "Traduzioni fisse\nAggiorna il tipo di dati delle date",
+        "es": "Traducciones fijas\nActualizar el tipo de datos de fechas",
+        "pl": "Tłumaczenia stałe\nZaktualizuj typ danych dat",
+        "zh-cn": "固定翻译\n更新日期数据类型"
+      },
+      "4.0.0": {
+        "en": "Update dates data type",
+        "de": "Datumsdatentyp aktualisieren",
+        "ru": "Тип данных даты обновления",
+        "pt": "Atualizar tipo de dados de datas",
+        "nl": "Datatype updaten",
+        "fr": "Mettre à jour le type de données des dates",
+        "it": "Aggiorna il tipo di dati delle date",
+        "es": "Actualizar el tipo de datos de fechas",
+        "pl": "Zaktualizuj typ danych dat",
+        "zh-cn": "更新日期数据类型"
+      },
+      "3.0.5": {
+        "en": "prevent calls and other errors to Yr when no location is defined",
+        "de": "Anrufe und andere Fehler an Yr verhindern, wenn kein Standort definiert ist",
+        "ru": "предотвращать звонки и другие ошибки в Yr, когда местоположение не определено",
+        "pt": "evitar chamadas e outros erros para o ano quando nenhum local estiver definido",
+        "nl": "voorkom oproepen en andere fouten naar Yr wanneer er geen locatie is gedefinieerd",
+        "fr": "empêcher les appels et autres erreurs à Yr lorsqu'aucun emplacement n'est défini",
+        "it": "prevenire chiamate e altri errori a Yr quando non è definita alcuna posizione",
+        "es": "evitar llamadas y otros errores a Yr cuando no se define ninguna ubicación",
+        "pl": "zapobiegaj wywołaniom i innym błędom do Yr, gdy nie określono lokalizacji location",
+        "zh-cn": "在未定义位置时防止对 Yr 的调用和其他错误"
+      },
+      "3.0.4": {
+        "en": "prevent last js-controller 3.3 warnings",
+        "de": "letzte js-controller 3.3 Warnungen verhindern",
+        "ru": "предотвратить последние предупреждения js-controller 3.3",
+        "pt": "evitar os últimos avisos do js-controller 3.3",
+        "nl": "voorkom laatste js-controller 3.3 waarschuwingen",
+        "fr": "empêcher les derniers avertissements js-controller 3.3",
+        "it": "prevenire gli ultimi avvisi di js-controller 3.3",
+        "es": "evitar las últimas advertencias de js-controller 3.3",
+        "pl": "zapobiegaj ostatnim ostrzeżeniom js-controller 3.3",
+        "zh-cn": "防止上次 js-controller 3.3 警告"
+      },
+      "3.0.3": {
+        "en": "prevent js-controller 3.3 warnings",
+        "de": "js-controller 3.3 Warnungen verhindern",
+        "ru": "предотвратить предупреждения js-controller 3.3",
+        "pt": "evitar avisos do js-controller 3.3",
+        "nl": "js-controller 3.3 waarschuwingen voorkomen",
+        "fr": "empêcher les avertissements js-controller 3.3",
+        "it": "prevenire gli avvisi di js-controller 3.3",
+        "es": "prevenir advertencias de js-controller 3.3",
+        "pl": "zapobiegaj ostrzeżeniom js-controller 3.3",
+        "zh-cn": "防止 js-controller 3.3 警告"
+      },
+      "3.0.2": {
+        "en": "Fix crash issue from Sentry",
+        "de": "Absturzproblem von Sentry behoben",
+        "ru": "Устранить проблему сбоя из Sentry",
+        "pt": "Corrigir problema de travamento do Sentry",
+        "nl": "Crashprobleem van Sentry oplossen",
+        "fr": "Résoudre le problème de plantage de Sentry",
+        "it": "Risolto il problema di arresto anomalo di Sentry",
+        "es": "Solucionar problema de bloqueo de Sentry",
+        "pl": "Napraw problem z awarią z Sentry",
+        "zh-cn": "修复 Sentry 的崩溃问题"
+      },
+      "3.0.1": {
+        "en": "Optimizations and Fixes\nAdd Sentry crash reporting",
+        "de": "Optimierungen und Fixes\nSentry-Absturzberichte hinzufügen",
+        "ru": "Оптимизация и исправления\nДобавить отчет о сбоях Sentry",
+        "pt": "Otimizações e correções\nAdicionar relatório de falha do Sentry",
+        "nl": "Optimalisaties en oplossingen\nSentry-crashrapportage toevoegen",
+        "fr": "Optimisations et correctifs\nAjouter un rapport de plantage Sentry",
+        "it": "Ottimizzazioni e correzioni\nAggiungi segnalazione di arresto anomalo di Sentry",
+        "es": "Optimizaciones y correcciones\nAgregar informe de fallas de Sentry",
+        "pl": "Optymalizacje i poprawki\nDodaj raport o awariach Sentry",
+        "zh-cn": "优化和修复\n添加哨兵崩溃报告"
+      }
     },
-    "protectedNative": [],
-    "encryptedNative": [],
-    "native": {
-        "latitude": "",
-        "longitude": "",
-        "altitude": "",
-        "language": "en",
-        "sendTranslations": true,
-        "compact": true
+    "title": "yr.no",
+    "titleLang": {
+      "en": "yr.no weather",
+      "de": "yr.no Wetter",
+      "ru": "yr.no погода",
+      "pt": "yr.no tempo",
+      "nl": "yr.nr weer",
+      "fr": "yr.no météo",
+      "it": "anno vecchio",
+      "es": "yr.no tiempo",
+      "pl": "yr.no pogody",
+      "zh-cn": "yr.no天气"
     },
-    "objects": [],
-    "instanceObjects": [
-        {
-            "_id": "version",
-            "type": "state",
-            "common": {
-                "name": "Version",
-                "type": "string",
-                "role": "value",
-                "read": true,
-                "write": false
-            },
-            "native": {}
-        }
-    ]
+    "desc": {
+      "en": "10d weather forecast from yr.no",
+      "de": "10 Tage Wettervorhersage von yr.no",
+      "ru": "Получает прогноз погоды на 10d с yr.no",
+      "pt": "Fetches 10d previsão do tempo a partir de yr.no",
+      "nl": "Haal 10d weersvoorspelling op van yr.no",
+      "fr": "Fetchs 10d météo de yr.no",
+      "it": "Calcola le previsioni del tempo a 10 ore dall'anno n",
+      "es": "Obtiene 10d pronóstico del tiempo de yr.no",
+      "pl": "Pobiera 10-godzinną prognozę pogody z yr.no",
+      "zh-cn": "从 yr.no 获取 10d 天气预报"
+    },
+    "authors": [
+      "hobbyquaker <hq@ccu.io>"
+    ],
+    "license": "MIT",
+    "platform": "Javascript/Node.js",
+    "mode": "schedule",
+    "schedule": "6 * * * *",
+    "enabled": true,
+    "loglevel": "info",
+    "materialize": true,
+    "keywords": [
+      "weather",
+      "forecast",
+      "temperature",
+      "rain",
+      "yr",
+      "meteorology"
+    ],
+    "compact": true,
+    "adminUI": {
+      "config": "json"
+    },
+    "connectionType": "cloud",
+    "dataSource": "poll",
+    "tier": 2,
+    "icon": "yr.png",
+    "extIcon": "https://raw.githubusercontent.com/ioBroker/ioBroker.yr/master/admin/yr.png",
+    "readme": "https://github.com/ioBroker/ioBroker.yr/blob/master/README.md",
+    "allowInit": true,
+    "type": "weather",
+    "dependencies": [
+      {
+        "js-controller": ">=3.3.0"
+      }
+    ],
+    "plugins": {
+      "sentry": {
+        "dsn": "https://696e8a28848042c288d68172bca32737@sentry.iobroker.net/140"
+      }
+    }
+  },
+  "protectedNative": [],
+  "encryptedNative": [],
+  "native": {
+    "latitude": "",
+    "longitude": "",
+    "altitude": "",
+    "language": "en",
+    "sendTranslations": true,
+    "compact": true
+  },
+  "objects": [],
+  "instanceObjects": [
+    {
+      "_id": "version",
+      "type": "state",
+      "common": {
+        "name": "Version",
+        "type": "string",
+        "role": "value",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    }
+  ]
 }
