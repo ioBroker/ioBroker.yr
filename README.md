@@ -37,6 +37,10 @@ Icons are taken from here [https://api.met.no/weatherapi/weathericon/2.0/documen
 
 ## Changelog
 
+### 4.0.0 (2021-10-21)
+* (klein0r) Fixed translations
+* (klein0r) Update dates data type
+
 ### 3.0.5 (2021-07-26)
 * (Apollon77) prevent calls and other errors to Yr when no location is defined
 

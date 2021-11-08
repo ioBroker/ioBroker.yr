@@ -25,6 +25,8 @@ class Yr extends utils.Adapter {
         this.on('ready', this.onReady.bind(this));
         this.on('unload', this.onUnload.bind(this));
 
+        this.runObjectUpdates = false;
+
         this.client = got.extend({
             headers: {
                 'user-agent': `ioBroker.yr/${pjson.version} github.com/ioBroker/ioBroker.yr`
@@ -61,6 +63,19 @@ class Yr extends utils.Adapter {
         }
         if (this.config.sendTranslations === 'false') {
             this.config.sendTranslations = false;
+        }
+
+        try {
+            const prevVersion = await this.getStateAsync('version') || {val: '0.0.1'};
+            this.log.debug('Configured version: ' + JSON.stringify(prevVersion));
+            if (this.isNewerVersion(prevVersion.val, this.version)) {
+                this.log.info('Newer version detected! Updating objects');
+                this.runObjectUpdates = true;
+
+                await this.setStateAsync('version', this.version, true);
+            }
+        } catch (ex) {
+            this.log.error(ex);
         }
 
         // Force terminate after 5min
@@ -115,7 +130,7 @@ class Yr extends utils.Adapter {
         //const timeseries = data['properties']['timeseries'];
         const device = 'forecast';
         //Device
-        await this.setObjectAsync(device, {
+        await this.setObjectNotExistsAsync(device, {
             type: 'device',
             common: {
                 name: 'forecast',
@@ -124,7 +139,7 @@ class Yr extends utils.Adapter {
             native: {},
         });
         const channel = 'info';
-        await this.setObjectAsync(device + '.' + channel, {
+        await this.setObjectNotExistsAsync(device + '.' + channel, {
             type: 'channel',
             common: {
                 name: 'forecast links and objects',
@@ -134,7 +149,7 @@ class Yr extends utils.Adapter {
         });
         const base_state_path = device + '.' + channel + '.';
 
-        await this.setObjectAsync(base_state_path + 'object', {
+        await this.setObjectNotExistsAsync(base_state_path + 'object', {
             type: 'state',
             common: {
                 name: 'forecast object',
@@ -150,26 +165,37 @@ class Yr extends utils.Adapter {
         await this.setStateAsync(base_state_path + 'object', JSON.stringify(data), true);
 
         const updated_at = new Date(data['properties']['meta']['updated_at']);
-        await this.setObjectAsync(base_state_path + 'updated_at', {
+        await this.setObjectNotExistsAsync(base_state_path + 'updated_at', {
             type: 'state',
             common: {
                 name: 'Forecast update time',
                 desc: '',
-                type: 'string',
-                role: 'text',
+                type: 'number',
+                role: 'date',
                 read: true,
                 write: false,
                 def: ''
             },
             native: {},
         });
-        await this.setStateAsync(base_state_path + 'updated_at', updated_at.toString(), true);
+
+        // Update existing
+        if (this.runObjectUpdates) {
+            this.extendObjectAsync(base_state_path + 'updated_at', {
+                common: {
+                    type: 'number',
+                    role: 'date'
+                }
+            });
+        }
+
+        await this.setStateAsync(base_state_path + 'updated_at', updated_at.getTime(), true);
 
         //TODO Generate Daily Forecast
         //TODO Generate Forecast Table
 
         /*
-        await this.setObjectAsync(base_state_path + 'html', {
+        await this.setObjectNotExistsAsync(base_state_path + 'html', {
             type: 'state',
             common: {
                 name: 'forecast html',
@@ -193,7 +219,7 @@ class Yr extends utils.Adapter {
         const now = Date.now();
 
         //Device
-        await this.setObjectAsync(device, {
+        await this.setObjectNotExistsAsync(device, {
             type: 'device',
             common: {
                 name: 'forecast hourly',
@@ -204,7 +230,8 @@ class Yr extends utils.Adapter {
 
         for (let i in timeseries) {
             const forecast = timeseries[i];
-            const time = new Date(forecast['time']).getTime();
+            const dateObj = new Date(forecast['time']);
+            const time = dateObj.getTime();
             let hourDiff = Math.ceil((time - now) / (1000 * 60 * 60));
             hourDiff = hourDiff === -0 ? 0 : hourDiff;
 
@@ -213,7 +240,7 @@ class Yr extends utils.Adapter {
 
             this.log.debug(`Process Forecast data ${channel}: ${JSON.stringify(hour_data)} `);
 
-            await this.setObjectAsync(device + '.' + channel, {
+            await this.setObjectNotExistsAsync(device + '.' + channel, {
                 type: 'channel',
                 common: {
                     name: 'in ' + channel,
@@ -221,22 +248,30 @@ class Yr extends utils.Adapter {
                 },
                 native: {},
             });
+
             const base_state_path = device + '.' + channel + '.';
 
-            await this.setObjectAsync(base_state_path + 'time', {
+            await this.setObjectNotExistsAsync(base_state_path + 'time', {
                 type: 'state',
                 common: {
                     name: 'time',
                     desc: '',
-                    type: 'string',
-                    role: 'text',
+                    type: 'number',
+                    role: 'date',
                     read: true,
                     write: false,
                     def: ''
                 },
                 native: {},
             });
-            await this.setStateAsync(base_state_path + 'time', time.toString(), true);
+            // Update existing
+            this.extendObjectAsync(base_state_path + 'time', {
+                common: {
+                    type: 'number',
+                    role: 'date'
+                }
+            });
+            await this.setStateAsync(base_state_path + 'time', time, true);
 
             //Instant
             for (const key in hour_data['instant']['details']) {
@@ -245,7 +280,7 @@ class Yr extends utils.Adapter {
                 unit = unit === 'celsius' ? '°C' : unit;
                 unit = unit === 'degrees' ? '°' : unit;
 
-                await this.setObjectAsync(base_state_path + key, {
+                await this.setObjectNotExistsAsync(base_state_path + key, {
                     type: 'state',
                     common: {
                         name: key,
@@ -264,7 +299,7 @@ class Yr extends utils.Adapter {
             if ('next_1_hours' in hour_data) {
                 const summary1h = hour_data['next_1_hours']['summary']['symbol_code'];
 
-                await this.setObjectAsync(base_state_path + '1h_summary_symbol', {
+                await this.setObjectNotExistsAsync(base_state_path + '1h_summary_symbol', {
                     type: 'state',
                     common: {
                         name: '1h_summary_symbol',
@@ -280,7 +315,7 @@ class Yr extends utils.Adapter {
                 await this.setStateAsync(base_state_path + '1h_summary_symbol', '/adapter/yr/icons/' + summary1h + '.svg', true);
 
                 if (summary1h.split('_')[0] in legend) {
-                    await this.setObjectAsync(base_state_path + '1h_summary_text', {
+                    await this.setObjectNotExistsAsync(base_state_path + '1h_summary_text', {
                         type: 'state',
                         common: {
                             name: '1h_summary_text',
@@ -302,7 +337,7 @@ class Yr extends utils.Adapter {
                         unit = unit === 'celsius' ? '°C' : unit;
                         unit = unit === 'degrees' ? '°' : unit;
 
-                        await this.setObjectAsync(base_state_path + '1h_' + key, {
+                        await this.setObjectNotExistsAsync(base_state_path + '1h_' + key, {
                             type: 'state',
                             common: {
                                 name: key,
@@ -324,7 +359,7 @@ class Yr extends utils.Adapter {
             if ('next_6_hours' in hour_data) {
                 const summary6h = hour_data['next_6_hours']['summary']['symbol_code'];
 
-                await this.setObjectAsync(base_state_path + '6h_summary_symbol', {
+                await this.setObjectNotExistsAsync(base_state_path + '6h_summary_symbol', {
                     type: 'state',
                     common: {
                         name: '6h_summary_symbol',
@@ -340,7 +375,7 @@ class Yr extends utils.Adapter {
                 await this.setStateAsync(base_state_path + '6h_summary_symbol', '/adapter/yr/icons/' + summary6h + '.svg', true);
 
                 if (summary6h.split('_')[0] in legend) {
-                    await this.setObjectAsync(base_state_path + '6h_summary_text', {
+                    await this.setObjectNotExistsAsync(base_state_path + '6h_summary_text', {
                         type: 'state',
                         common: {
                             name: '6h_summary_text',
@@ -362,7 +397,7 @@ class Yr extends utils.Adapter {
                         unit = unit === "celsius" ? '°C' : unit;
                         unit = unit === "degrees" ? '°' : unit;
 
-                        await this.setObjectAsync(base_state_path + '6h_' + key, {
+                        await this.setObjectNotExistsAsync(base_state_path + '6h_' + key, {
                             type: 'state',
                             common: {
                                 name: key,
@@ -384,7 +419,7 @@ class Yr extends utils.Adapter {
             if ('next_12_hours' in hour_data) {
                 const summary12h = hour_data['next_12_hours']['summary']['symbol_code'];
 
-                await this.setObjectAsync(base_state_path + '12h_summary_symbol', {
+                await this.setObjectNotExistsAsync(base_state_path + '12h_summary_symbol', {
                     type: 'state',
                     common: {
                         name: '12h_summary_symbol',
@@ -400,7 +435,7 @@ class Yr extends utils.Adapter {
                 await this.setStateAsync(base_state_path + '12h_summary_symbol', '/adapter/yr/icons/' + summary12h + '.svg', true);
 
                 if (summary12h.split('_')[0] in legend) {
-                    await this.setObjectAsync(base_state_path + '12h_summary_text', {
+                    await this.setObjectNotExistsAsync(base_state_path + '12h_summary_text', {
                         type: 'state',
                         common: {
                             name: '12h_summary_text',
@@ -422,7 +457,7 @@ class Yr extends utils.Adapter {
                         unit = unit === "celsius" ? '°C' : unit;
                         unit = unit === "degrees" ? '°' : unit;
 
-                        await this.setObjectAsync(base_state_path + '12h_' + key, {
+                        await this.setObjectNotExistsAsync(base_state_path + '12h_' + key, {
                             type: 'state',
                             common: {
                                 name: key,
@@ -490,6 +525,18 @@ class Yr extends utils.Adapter {
         } else {
             this.log.error('Longitude or Latitude not set correctly.');
         }
+    }
+
+    isNewerVersion(oldVer, newVer) {
+        const oldParts = oldVer.split('.');
+        const newParts = newVer.split('.');
+        for (var i = 0; i < newParts.length; i++) {
+            const a = ~~newParts[i]; // parse int
+            const b = ~~oldParts[i]; // parse int
+            if (a > b) return true;
+            if (a < b) return false;
+        }
+        return false;
     }
 }
 

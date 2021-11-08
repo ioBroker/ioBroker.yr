@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "yr",
-        "version": "3.0.5",
+        "version": "4.0.0",
         "news": {
+            "4.0.0": {
+                "en": "Update dates data type",
+                "de": "Datumsdatentyp aktualisieren",
+                "ru": "Тип данных даты обновления",
+                "pt": "Atualizar tipo de dados de datas",
+                "nl": "Datatype updaten",
+                "fr": "Mettre à jour le type de données des dates",
+                "it": "Aggiorna il tipo di dati delle date",
+                "es": "Actualizar el tipo de datos de fechas",
+                "pl": "Zaktualizuj typ danych dat",
+                "zh-cn": "更新日期数据类型"
+            },
             "3.0.5": {
                 "en": "prevent calls and other errors to Yr when no location is defined",
                 "de": "Anrufe und andere Fehler an Yr verhindern, wenn kein Standort definiert ist",
@@ -74,66 +86,6 @@
                 "es": "Cambiar a la nueva API JSON",
                 "pl": "Przejdź do nowego interfejsu API JSON",
                 "zh-cn": "切换到新的JSON API"
-            },
-            "2.0.3": {
-                "en": "Translations were corrected",
-                "de": "Übersetzungen wurden korrigiert",
-                "ru": "Переводы были исправлены",
-                "pt": "Traduções foram corrigidas",
-                "nl": "Vertalingen werden gecorrigeerd",
-                "fr": "Les traductions ont été corrigées",
-                "it": "Le traduzioni sono state corrette",
-                "es": "Las traducciones fueron corregidas",
-                "pl": "Tłumaczenia zostały poprawione",
-                "zh-cn": "翻译已更正"
-            },
-            "2.0.2": {
-                "en": "Warning! Breaking changes!\nRefactoring of states and roles",
-                "de": "Warnung! Breaking Änderungen!\nRefactoring von Zuständen und Rollen",
-                "ru": "Предупреждение! Нарушение изменений!\nРефакторинг состояний и ролей",
-                "pt": "Atenção! Quebrando mudanças!\nRefatoração de estados e papéis",
-                "nl": "Waarschuwing! Veranderingen doorbreken!\nRefactoring van staten en rollen",
-                "fr": "Attention! Briser les changements!\nRefactorisation des états et des rôles",
-                "it": "Avvertimento! Ultime modifiche!\nRefactoring di stati e ruoli",
-                "es": "¡Advertencia! ¡Rompiendo cambios!\nRefactorización de estados y roles",
-                "pl": "Ostrzeżenie! Łamanie zmian!\nRefaktoryzacja stanów i ról",
-                "zh-cn": "警告！"
-            },
-            "1.0.6": {
-                "en": "Update iconset",
-                "de": "Iconset geändert",
-                "ru": "Update iconset",
-                "pt": "Atualizar conjunto de ícones",
-                "nl": "Pictogramset bijwerken",
-                "fr": "Mettre à jour le jeu d'icônes",
-                "it": "Aggiorna set di icone",
-                "es": "Actualizar conjunto de iconos",
-                "pl": "Zaktualizuj zestaw ikon",
-                "zh-cn": "更新图标集"
-            },
-            "1.0.5": {
-                "en": "move weather widgets to this adapter",
-                "de": "Verschiebe Wetter-Widgets ins Adapter",
-                "ru": "Добавлены виджеты",
-                "pt": "mover widgets de clima para este adaptador",
-                "nl": "verplaats weerwidgets naar deze adapter",
-                "fr": "déplacer les widgets météo vers cet adaptateur",
-                "it": "sposta i widget meteo su questo adattatore",
-                "es": "mover widgets meteorológicos a este adaptador",
-                "pl": "przenieś widżety pogodowe do tego adaptera",
-                "zh-cn": "将天气小部件移动到此适配器"
-            },
-            "1.0.4": {
-                "en": "fix link to readme",
-                "de": "fix link to readme",
-                "ru": "fix link to readme",
-                "pt": "consertar link para ler-me",
-                "nl": "link naar readme repareren",
-                "fr": "réparer le lien vers readme",
-                "it": "correggi il collegamento al readme",
-                "es": "arreglar el enlace al archivo Léame",
-                "pl": "napraw link do readme",
-                "zh-cn": "修复自述文件链接"
             }
         },
         "title": "yr.no",
@@ -150,8 +102,8 @@
             "zh-cn": "yr.no天气"
         },
         "desc": {
-            "en": "Fetches 10d weather forecast from yr.no",
-            "de": "Holt 10d Wettervorhersage von yr.no",
+            "en": "10d weather forecast from yr.no",
+            "de": "10 Tage Wettervorhersage von yr.no",
             "ru": "Получает прогноз погоды на 10d с yr.no",
             "pt": "Fetches 10d previsão do tempo a partir de yr.no",
             "nl": "Haal 10d weersvoorspelling op van yr.no",
@@ -181,7 +133,7 @@
         ],
         "compact": true,
         "adminUI": {
-            "config": "materialize"
+            "config": "json"
         },
         "connectionType": "cloud",
         "dataSource": "poll",
@@ -191,6 +143,11 @@
         "readme": "https://github.com/ioBroker/ioBroker.yr/blob/master/README.md",
         "allowInit": true,
         "type": "weather",
+        "dependencies": [
+            {
+                "js-controller": ">=3.3.0"
+            }
+        ],
         "plugins": {
             "sentry": {
                 "dsn": "https://696e8a28848042c288d68172bca32737@sentry.iobroker.net/140"
@@ -208,5 +165,18 @@
         "compact": true
     },
     "objects": [],
-    "instanceObjects": []
+    "instanceObjects": [
+        {
+            "_id": "version",
+            "type": "state",
+            "common": {
+                "name": "Version",
+                "type": "string",
+                "role": "value",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        }
+    ]
 }
