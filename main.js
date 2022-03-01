@@ -2,13 +2,15 @@
 /* jshint strict: false */
 /* jslint node: true */
 const got = require('got');
+const fs = require('fs');
+const path = require('path');
 const http = require('http');
 const utils = require('@iobroker/adapter-core'); // Get common adapter utils
 
 const packJson = require('./package.json');
 const dictionary = require('./lib/words');
 
-const LEGEND_URL = 'https://api.met.no/weatherapi/weathericon/2.0/legends';
+//const LEGEND_URL = 'https://api.met.no/weatherapi/weathericon/2.0/legends'; Packed into legend.json now
 const BASE_FORECAST_URL = 'https://api.met.no/weatherapi/locationforecast/2.0/';
 
 // const USER_AGENT = 'ioBroker.yr github.com/ioBroker/ioBroker.yr'
@@ -32,10 +34,16 @@ class Yr extends utils.Adapter {
                 'user-agent': `ioBroker.yr/${packJson.version} github.com/ioBroker/ioBroker.yr`
             }
         });
+        this.unloaded = false;
     }
 
     onUnload(callback) {
+        this.unloaded = true;
         callback && callback();
+    }
+
+    sleep(ms) {
+        return new Promise(resolve => setTimeout(() => !this.unloaded && resolve(), ms));
     }
 
     async onReady() {
@@ -66,6 +74,19 @@ class Yr extends utils.Adapter {
         }
 
         try {
+            const instObj = await this.getObjectAsync(`system.adapter.${this.namespace}`);
+            if (instObj && instObj.common && instObj.common.schedule && instObj.common.schedule === '6 * * * *') {
+                instObj.common.schedule = `${Math.floor(Math.random() * 60)} * * * *`;
+                this.log.info(`Default schedule found and adjusted to spread calls better over the full hour!`);
+                await this.setObjectAsync(`system.adapter.${this.namespace}`, instObj);
+                this.terminate ? this.terminate() : process.exit(0);
+                return;
+            }
+        } catch (err) {
+            this.log.error(`Could not check or adjust the schedule`);
+        }
+
+        try {
             const prevVersion = await this.getStateAsync('version') || {val: '0.0.1'};
             this.log.debug('Configured version: ' + JSON.stringify(prevVersion));
             if (this.isNewerVersion(prevVersion.val, this.version)) {
@@ -77,6 +98,10 @@ class Yr extends utils.Adapter {
         } catch (ex) {
             this.log.error(ex);
         }
+
+        const delay = Math.floor(Math.random() * 60000);
+        this.log.debug(`Delay execution by ${delay}ms to better spread API calls`);
+        await this.sleep(delay);
 
         // Force terminate after 5min
         setTimeout(() => {
@@ -228,7 +253,7 @@ class Yr extends utils.Adapter {
             native: {},
         });
 
-        for (let i in timeseries) {
+        for (const i in timeseries) {
             const forecast = timeseries[i];
             const dateObj = new Date(forecast['time']);
             const time = dateObj.getTime();
@@ -394,8 +419,8 @@ class Yr extends utils.Adapter {
                     for (const key in hour_data['next_6_hours']['details']) {
                         let unit = key in units ? units[key] : '';
                         const value = hour_data['next_6_hours']['details'][key];
-                        unit = unit === "celsius" ? '°C' : unit;
-                        unit = unit === "degrees" ? '°' : unit;
+                        unit = unit === 'celsius' ? '°C' : unit;
+                        unit = unit === 'degrees' ? '°' : unit;
 
                         await this.setObjectNotExistsAsync(base_state_path + '6h_' + key, {
                             type: 'state',
@@ -482,11 +507,13 @@ class Yr extends utils.Adapter {
         this.log.debug('Raw data: ' + JSON.stringify(data));
 
         let legend;
+        const legendPath = path.join(__dirname, 'legend.json'); // Just store in module path
+
         try {
-            legend = await this.client(LEGEND_URL).json();
+            legend = fs.readFileSync(legendPath, 'utf-8');
         } catch (err) {
-            this.log.info(`Error while requesting Legend data:  ${err.message}`);
-            this.log.info('Please check your settings!');
+            this.log.info(`Error while loading Legend data:  ${err.message}`);
+            this.log.info('Please reinstall the adapter!');
             return;
         }
 
@@ -530,7 +557,7 @@ class Yr extends utils.Adapter {
     isNewerVersion(oldVer, newVer) {
         const oldParts = oldVer.split('.');
         const newParts = newVer.split('.');
-        for (var i = 0; i < newParts.length; i++) {
+        for (let i = 0; i < newParts.length; i++) {
             const a = ~~newParts[i]; // parse int
             const b = ~~oldParts[i]; // parse int
             if (a > b) return true;

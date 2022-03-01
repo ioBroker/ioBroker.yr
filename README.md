@@ -139,7 +139,7 @@ Icons are taken from here [https://api.met.no/weatherapi/weathericon/2.0/documen
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2014-2021 hobbyquaker <hq@ccu.io>, Bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2022 hobbyquaker <hq@ccu.io>, Bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
