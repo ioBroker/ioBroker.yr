@@ -105,6 +105,7 @@ class Yr extends utils.Adapter {
 
         // Force terminate after 5min
         setTimeout(() => {
+            this.unloaded = true;
             this.log.error('force terminate');
             this.terminate ? this.terminate() : process.exit(0);
         }, 300000);
@@ -152,6 +153,9 @@ class Yr extends utils.Adapter {
     }
 
     async updateForecast(data, legend) {
+        if (this.unloaded) {
+            return;
+        }
         //const timeseries = data['properties']['timeseries'];
         const device = 'forecast';
         //Device
@@ -238,6 +242,10 @@ class Yr extends utils.Adapter {
     }
 
     async updateHourlyForecast(data, legend) {
+        if (this.unloaded) {
+            return;
+        }
+
         const units = data['properties']['meta']['units'];
         const timeseries = data['properties']['timeseries'];
         const device = 'forecastHourly';
@@ -254,6 +262,9 @@ class Yr extends utils.Adapter {
         });
 
         for (const i in timeseries) {
+            if (this.unloaded) {
+                return;
+            }
             const forecast = timeseries[i];
             const dateObj = new Date(forecast['time']);
             const time = dateObj.getTime();
@@ -300,6 +311,9 @@ class Yr extends utils.Adapter {
 
             //Instant
             for (const key in hour_data['instant']['details']) {
+                if (this.unloaded) {
+                    return;
+                }
                 let unit = key in units ? units[key] : '';
                 const value = hour_data['instant']['details'][key];
                 unit = unit === 'celsius' ? '°C' : unit;
@@ -477,6 +491,9 @@ class Yr extends utils.Adapter {
                 }
                 if ('details' in hour_data['next_12_hours']) {
                     for (const key in hour_data['next_12_hours']['details']) {
+                        if (this.unloaded) {
+                            return;
+                        }
                         let unit = key in units ? units[key] : '';
                         const value = hour_data['next_12_hours']['details'][key];
                         unit = unit === 'celsius' ? '°C' : unit;
