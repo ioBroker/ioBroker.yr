@@ -75,6 +75,7 @@ class Yr extends utils.Adapter {
 
         try {
             const instObj = await this.getObjectAsync(`system.adapter.${this.namespace}`);
+            this.log.debug(`Instance object: ${JSON.stringify(instObj)}`);
             if (instObj && instObj.common && instObj.common.schedule && instObj.common.schedule === '6 * * * *') {
                 instObj.common.schedule = `${Math.floor(Math.random() * 60)} * * * *`;
                 this.log.info(`Default schedule found and adjusted to spread calls better over the full hour!`);
@@ -83,7 +84,7 @@ class Yr extends utils.Adapter {
                 return;
             }
         } catch (err) {
-            this.log.error(`Could not check or adjust the schedule`);
+            this.log.error(`Could not check or adjust the schedule: ${err.message}`);
         }
 
         try {
