@@ -1,8 +1,20 @@
 {
   "common": {
     "name": "yr",
-    "version": "5.0.0",
+    "version": "5.1.0",
     "news": {
+      "5.1.0": {
+        "en": "Move schedule if default is used on request of met.no\nDo not query legend/icons dynamically, but deliver with the version\nmake sure to not execute logic when adapter stopped already",
+        "de": "Verschiebezeitplan, wenn Standard auf Anfrage von met.no verwendet wird\nLegende/Icons nicht dynamisch abfragen, sondern mit der Version ausliefern\nStellen Sie sicher, dass keine Logik ausgeführt wird, wenn der Adapter bereits gestoppt wurde",
+        "ru": "Переместить расписание, если используется значение по умолчанию, по запросу met.no\nНе запрашивайте легенду/значки динамически, а доставляйте вместе с версией\nубедитесь, что логика не выполняется, когда адаптер уже остановлен",
+        "pt": "Mover agenda se o padrão for usado a pedido de met.no\nNão consulte legendas/ícones dinamicamente, mas entregue com a versão\ncertifique-se de não executar a lógica quando o adaptador já parou",
+        "nl": "Verplaats schema als standaard wordt gebruikt op verzoek van met.no\nNiet dynamisch opvragen bij legenda/pictogrammen, maar aanleveren met de versie\nzorg ervoor dat u geen logica uitvoert wanneer de adapter al is gestopt",
+        "fr": "Déplacer l'horaire si la valeur par défaut est utilisée à la demande de met.no\nNe pas interroger dynamiquement la légende/les icônes, mais livrer avec la version\nassurez-vous de ne pas exécuter de logique lorsque l'adaptateur s'est déjà arrêté",
+        "it": "Spostare la pianificazione se viene utilizzata l'impostazione predefinita su richiesta di met.no\nNon interrogare dinamicamente legenda/icone, ma consegnare con la versione\nassicurati di non eseguire la logica quando l'adattatore è già stato arrestato",
+        "es": "Mover programa si se usa el valor predeterminado a pedido de met.no\nNo consulte leyendas/iconos de forma dinámica, sino entregue con la versión\nasegúrese de no ejecutar la lógica cuando el adaptador ya se detuvo",
+        "pl": "Przenieś harmonogram, jeśli używany jest domyślny na żądanie met.no\nNie wysyłaj zapytań do legendy/ikony dynamicznie, ale dostarczaj wraz z wersją\nupewnij się, że nie wykonujesz logiki, gdy adapter już się zatrzymał",
+        "zh-cn": "如果根据 met.no 的要求使用默认值，则移动时间表\n不要动态查询图例/图标，而是随版本一起提供\n确保适配器已停止时不执行逻辑"
+      },
       "5.0.0": {
         "en": "Fixed translations\nUpdate dates data type",
         "de": "Feste Übersetzungen\nDatumsdatentyp aktualisieren",
@@ -74,18 +86,6 @@
         "es": "Solucionar problema de bloqueo de Sentry",
         "pl": "Napraw problem z awarią z Sentry",
         "zh-cn": "修复 Sentry 的崩溃问题"
-      },
-      "3.0.1": {
-        "en": "Optimizations and Fixes\nAdd Sentry crash reporting",
-        "de": "Optimierungen und Fixes\nSentry-Absturzberichte hinzufügen",
-        "ru": "Оптимизация и исправления\nДобавить отчет о сбоях Sentry",
-        "pt": "Otimizações e correções\nAdicionar relatório de falha do Sentry",
-        "nl": "Optimalisaties en oplossingen\nSentry-crashrapportage toevoegen",
-        "fr": "Optimisations et correctifs\nAjouter un rapport de plantage Sentry",
-        "it": "Ottimizzazioni e correzioni\nAggiungi segnalazione di arresto anomalo di Sentry",
-        "es": "Optimizaciones y correcciones\nAgregar informe de fallas de Sentry",
-        "pl": "Optymalizacje i poprawki\nDodaj raport o awariach Sentry",
-        "zh-cn": "优化和修复\n添加哨兵崩溃报告"
       }
     },
     "title": "yr.no",
