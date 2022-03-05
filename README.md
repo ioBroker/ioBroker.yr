@@ -13,9 +13,9 @@
 
 ## yr.no adapter for ioBroker
 
-fetches 10d weather forecast from [yr.no](yr.no)
+fetches 10d weather forecast from [yr.no](https://yr.no)
 
-[yr.no](yr.no) is a joint service by the [Norwegian Meteorological Institute](met.no) and the [Norwegian Broadcasting Corporation](nrk.no)
+[yr.no](https://yr.no) is a joint service by the [Norwegian Meteorological Institute](https://met.no) and the [Norwegian Broadcasting Corporation](https://nrk.no)
 
 https://api.met.no/weatherapi/locationforecast/2.0/documentation
 
@@ -38,7 +38,7 @@ Icons are taken from here [https://api.met.no/weatherapi/weathericon/2.0/documen
 ## Changelog
 
 ### __WORK IN PROGRESS__
-* (Apollon77) Move schedule if default is used
+* (Apollon77) Move schedule if default is used on request of met.no
 * (Apollon77) Do not query legend/icons dynamically, but deliver with the version
 * (Apollon77) make sure to not execute logic when adapter stopped already
 
