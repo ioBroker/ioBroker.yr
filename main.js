@@ -74,19 +74,6 @@ class Yr extends utils.Adapter {
         }
 
         try {
-            const instObj = await this.getForeignObjectAsync(`system.adapter.${this.namespace}`);
-            if (instObj && instObj.common && instObj.common.schedule && instObj.common.schedule === '6 * * * *') {
-                instObj.common.schedule = `${Math.floor(Math.random() * 60)} * * * *`;
-                this.log.info(`Default schedule found and adjusted to spread calls better over the full hour!`);
-                await this.setForeignObjectAsync(`system.adapter.${this.namespace}`, instObj);
-                this.terminate ? this.terminate() : process.exit(0);
-                return;
-            }
-        } catch (err) {
-            this.log.error(`Could not check or adjust the schedule: ${err.message}`);
-        }
-
-        try {
             const prevVersion = await this.getStateAsync('version') || {val: '0.0.1'};
             this.log.debug('Configured version: ' + JSON.stringify(prevVersion));
             if (this.isNewerVersion(prevVersion.val, this.version)) {
@@ -94,6 +81,19 @@ class Yr extends utils.Adapter {
                 this.runObjectUpdates = true;
 
                 await this.setStateAsync('version', this.version, true);
+
+                try {
+                    const instObj = await this.getForeignObjectAsync(`system.adapter.${this.namespace}`);
+                    if (instObj && instObj.common && instObj.common.schedule && instObj.common.schedule === '6 * * * *') {
+                        instObj.common.schedule = `${Math.floor(Math.random() * 60)} * * * *`;
+                        this.log.info(`Default schedule found and adjusted to spread calls better over the full hour!`);
+                        await this.setForeignObjectAsync(`system.adapter.${this.namespace}`, instObj);
+                        this.terminate ? this.terminate() : process.exit(0);
+                        return;
+                    }
+                } catch (err) {
+                    this.log.error(`Could not check or adjust the schedule: ${err.message}`);
+                }
             }
         } catch (ex) {
             this.log.error(ex);
@@ -210,7 +210,7 @@ class Yr extends utils.Adapter {
 
         // Update existing
         if (this.runObjectUpdates) {
-            this.extendObjectAsync(base_state_path + 'updated_at', {
+            await this.extendObjectAsync(base_state_path + 'updated_at', {
                 common: {
                     type: 'number',
                     role: 'date'
