@@ -74,7 +74,7 @@ class Yr extends utils.Adapter {
         }
 
         try {
-            const instObj = await this.getObjectAsync(`system.adapter.${this.namespace}`);
+            const instObj = await this.getForeignObjectAsync(`system.adapter.${this.namespace}`);
             if (instObj && instObj.common && instObj.common.schedule && instObj.common.schedule === '6 * * * *') {
                 instObj.common.schedule = `${Math.floor(Math.random() * 60)} * * * *`;
                 this.log.info(`Default schedule found and adjusted to spread calls better over the full hour!`);
