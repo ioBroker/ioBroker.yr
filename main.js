@@ -78,7 +78,7 @@ class Yr extends utils.Adapter {
             if (instObj && instObj.common && instObj.common.schedule && instObj.common.schedule === '6 * * * *') {
                 instObj.common.schedule = `${Math.floor(Math.random() * 60)} * * * *`;
                 this.log.info(`Default schedule found and adjusted to spread calls better over the full hour!`);
-                await this.setObjectAsync(`system.adapter.${this.namespace}`, instObj);
+                await this.setForeignObjectAsync(`system.adapter.${this.namespace}`, instObj);
                 this.terminate ? this.terminate() : process.exit(0);
                 return;
             }
