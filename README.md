@@ -36,6 +36,12 @@ Icons are taken from here [https://api.met.no/weatherapi/weathericon/2.0/documen
 -->
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (Apollon77) Move schedule if default is used
+* (Apollon77) Do not query legend/icons dynamically, but deliver with the version
+* (Apollon77) make sure to not execute logic when adapter stopped already
+
 ### 5.0.0 (2021-11-08)
 * (klein0r) Fixed translations
 * (klein0r) Update dates data type
@@ -139,7 +145,7 @@ Icons are taken from here [https://api.met.no/weatherapi/weathericon/2.0/documen
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2014-2021 hobbyquaker <hq@ccu.io>, Bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2022 hobbyquaker <hq@ccu.io>, Bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
