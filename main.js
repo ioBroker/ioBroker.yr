@@ -24,6 +24,7 @@ class Yr extends utils.Adapter {
             ...options,
             name: 'yr',
         });
+
         this.on('ready', this.onReady.bind(this));
         this.on('unload', this.onUnload.bind(this));
 
@@ -75,7 +76,8 @@ class Yr extends utils.Adapter {
 
         try {
             const prevVersion = await this.getStateAsync('version') || {val: '0.0.1'};
-            this.log.debug('Configured version: ' + JSON.stringify(prevVersion));
+            this.log.debug(`Configured version: ${JSON.stringify(prevVersion)}`);
+
             if (this.isNewerVersion(prevVersion.val, this.version)) {
                 this.log.info('Newer version detected! Updating objects');
                 this.runObjectUpdates = true;
@@ -138,7 +140,7 @@ class Yr extends utils.Adapter {
                     path: '/yr.php?word=' + encodeURIComponent(text)
                 };
                 const req = http.request(options, res => {
-                    console.log('STATUS: ' + res.statusCode);
+                    // console.log('STATUS: ' + res.statusCode);
                     this.log.info(`Missing translation sent to iobroker.net: "${text}"`);
                 });
                 req.on('error', e => {
@@ -274,7 +276,7 @@ class Yr extends utils.Adapter {
             const hour_data = forecast['data'];
             const channel = hourDiff + 'h';
 
-            this.log.debug(`Process Forecast data ${channel}: ${JSON.stringify(hour_data)} `);
+            this.log.debug(`Process Forecast data ${channel}: ${JSON.stringify(hour_data)}`);
 
             await this.setObjectNotExistsAsync(device + '.' + channel, {
                 type: 'channel',
@@ -521,7 +523,7 @@ class Yr extends utils.Adapter {
     }
 
     async updateData(data) {
-        this.log.debug('Raw data: ' + JSON.stringify(data));
+        this.log.debug(`Raw data: ${JSON.stringify(data)}`);
 
         let legend;
         const legendPath = path.join(__dirname, 'legend.json'); // Just store in module path
@@ -529,7 +531,7 @@ class Yr extends utils.Adapter {
         try {
             legend = fs.readFileSync(legendPath, 'utf-8');
         } catch (err) {
-            this.log.info(`Error while loading Legend data:  ${err.message}`);
+            this.log.info(`Error while loading Legend data: ${err.message}`);
             this.log.info('Please reinstall the adapter!');
             return;
         }
@@ -553,12 +555,13 @@ class Yr extends utils.Adapter {
 
             const method = this.config.compact ? 'compact' : 'complete';
             const url = BASE_FORECAST_URL + method + forecastParam;
-            this.log.debug('Get forecast from: ' + url);
+            this.log.debug(`Get forecast from: ${url}`);
             let response;
+
             try {
                 response = await this.client(url).json();
             } catch (err) {
-                this.log.info(`Error while requesting data:  ${err.message}`);
+                this.log.info(`Error while requesting data: ${err.message}`);
                 this.log.info('Please check your settings!');
             }
             if (response) {
