@@ -99,7 +99,7 @@ class Yr extends utils.Adapter {
             this.log.error(ex);
         }
 
-        const delay = Math.floor(Math.random() * 60000);
+        const delay = Math.floor(Math.random() * 30000);
         this.log.debug(`Delay execution by ${delay}ms to better spread API calls`);
         await this.sleep(delay);
 
@@ -527,7 +527,7 @@ class Yr extends utils.Adapter {
         const legendPath = path.join(__dirname, 'legend.json'); // Just store in module path
 
         try {
-            legend = fs.readFileSync(legendPath, 'utf-8');
+            legend = JSON.parse(fs.readFileSync(legendPath, 'utf-8'));
         } catch (err) {
             this.log.info(`Error while loading Legend data:  ${err.message}`);
             this.log.info('Please reinstall the adapter!');
