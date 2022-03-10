@@ -1,8 +1,20 @@
 {
   "common": {
     "name": "yr",
-    "version": "5.1.1",
+    "version": "5.1.2",
     "news": {
+      "5.1.2": {
+        "en": "Fix some invalid object default values",
+        "de": "Korrigieren Sie einige ungültige Objektstandardwerte",
+        "ru": "Исправить некоторые недопустимые значения объекта по умолчанию",
+        "pt": "Corrigir alguns valores padrão de objetos inválidos",
+        "nl": "Enkele ongeldige standaardwaarden voor objecten herstellen",
+        "fr": "Correction de certaines valeurs par défaut d'objets non valides",
+        "it": "Correggi alcuni valori predefiniti degli oggetti non validi",
+        "es": "Corrija algunos valores predeterminados de objetos no válidos",
+        "pl": "Napraw niektóre nieprawidłowe wartości domyślne obiektów",
+        "zh-cn": "修复一些无效的对象默认值"
+      },
       "5.1.1": {
         "en": "Add legend file to release also and fix usage",
         "de": "Fügen Sie der Veröffentlichung auch eine Legendendatei hinzu und korrigieren Sie die Verwendung",
@@ -74,18 +86,6 @@
         "es": "evitar las últimas advertencias de js-controller 3.3",
         "pl": "zapobiegaj ostatnim ostrzeżeniom js-controller 3.3",
         "zh-cn": "防止上次 js-controller 3.3 警告"
-      },
-      "3.0.3": {
-        "en": "prevent js-controller 3.3 warnings",
-        "de": "js-controller 3.3 Warnungen verhindern",
-        "ru": "предотвратить предупреждения js-controller 3.3",
-        "pt": "evitar avisos do js-controller 3.3",
-        "nl": "js-controller 3.3 waarschuwingen voorkomen",
-        "fr": "empêcher les avertissements js-controller 3.3",
-        "it": "prevenire gli avvisi di js-controller 3.3",
-        "es": "prevenir advertencias de js-controller 3.3",
-        "pl": "zapobiegaj ostrzeżeniom js-controller 3.3",
-        "zh-cn": "防止 js-controller 3.3 警告"
       }
     },
     "title": "yr.no",

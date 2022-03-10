@@ -1,7 +1,7 @@
 {
   "name": "iobroker.yr",
   "description": "Fetches 10d weather forecast from yr.no",
-  "version": "5.1.1",
+  "version": "5.1.2",
   "contributors": [
     "bluefox <dogafox@gmail.com>",
     "hobbyquaker <hq@ccu.io>"
