@@ -55,7 +55,8 @@
     "www/",
     "io-package.json",
     "LICENSE",
-    "main.js"
+    "main.js",
+    "legend.json"
   ],
   "scripts": {
     "watch:parcel": "parcel admin/src/index.jsx -d admin/build",
