@@ -36,6 +36,10 @@ Icons are taken from here [https://api.met.no/weatherapi/weathericon/2.0/documen
 -->
 
 ## Changelog
+
+### __WORK IN PROGRES__
+* (Apollon77) Fix some invalid object default values
+
 ### 5.1.1 (2022-03-10)
 * (Apollon77) Add legend file to release also and fix usage
 

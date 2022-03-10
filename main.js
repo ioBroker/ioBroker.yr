@@ -204,8 +204,7 @@ class Yr extends utils.Adapter {
                 type: 'number',
                 role: 'date',
                 read: true,
-                write: false,
-                def: ''
+                write: false
             },
             native: {},
         });
@@ -297,8 +296,7 @@ class Yr extends utils.Adapter {
                     type: 'number',
                     role: 'date',
                     read: true,
-                    write: false,
-                    def: ''
+                    write: false
                 },
                 native: {},
             });
