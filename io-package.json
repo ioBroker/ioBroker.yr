@@ -1,8 +1,20 @@
 {
   "common": {
     "name": "yr",
-    "version": "5.1.0",
+    "version": "5.1.1",
     "news": {
+      "5.1.1": {
+        "en": "Add legend file to release also and fix usage",
+        "de": "Fügen Sie der Veröffentlichung auch eine Legendendatei hinzu und korrigieren Sie die Verwendung",
+        "ru": "Добавьте файл легенды в выпуск и исправьте использование",
+        "pt": "Adicione o arquivo de legenda ao lançamento também e corrija o uso",
+        "nl": "Voeg legendabestand toe om ook vrij te geven en het gebruik op te lossen",
+        "fr": "Ajouter un fichier de légende à publier également et corriger l'utilisation",
+        "it": "Aggiungi anche il file legenda per rilasciare e correggere l'utilizzo",
+        "es": "Agregue el archivo de leyenda para liberar también y corregir el uso",
+        "pl": "Dodaj plik legendy również do wydania i napraw użycie",
+        "zh-cn": "添加图例文件以发布并修复使用"
+      },
       "5.1.0": {
         "en": "Move schedule if default is used on request of met.no\nDo not query legend/icons dynamically, but deliver with the version\nmake sure to not execute logic when adapter stopped already",
         "de": "Verschiebezeitplan, wenn Standard auf Anfrage von met.no verwendet wird\nLegende/Icons nicht dynamisch abfragen, sondern mit der Version ausliefern\nStellen Sie sicher, dass keine Logik ausgeführt wird, wenn der Adapter bereits gestoppt wurde",
@@ -74,18 +86,6 @@
         "es": "prevenir advertencias de js-controller 3.3",
         "pl": "zapobiegaj ostrzeżeniom js-controller 3.3",
         "zh-cn": "防止 js-controller 3.3 警告"
-      },
-      "3.0.2": {
-        "en": "Fix crash issue from Sentry",
-        "de": "Absturzproblem von Sentry behoben",
-        "ru": "Устранить проблему сбоя из Sentry",
-        "pt": "Corrigir problema de travamento do Sentry",
-        "nl": "Crashprobleem van Sentry oplossen",
-        "fr": "Résoudre le problème de plantage de Sentry",
-        "it": "Risolto il problema di arresto anomalo di Sentry",
-        "es": "Solucionar problema de bloqueo de Sentry",
-        "pl": "Napraw problem z awarią z Sentry",
-        "zh-cn": "修复 Sentry 的崩溃问题"
       }
     },
     "title": "yr.no",
