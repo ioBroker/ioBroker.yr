@@ -38,7 +38,7 @@ Icons are taken from here [https://api.met.no/weatherapi/weathericon/2.0/documen
 ## Changelog
 
 ### __WORK IN PROGRESS__
-* (Apollon77) Fix legend usage
+* (Apollon77) Add legend file to release also and fix usage
 
 ### 5.1.0 (2022-03-05)
 * (Apollon77) Move schedule if default is used on request of met.no
