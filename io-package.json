@@ -1,8 +1,20 @@
 {
   "common": {
     "name": "yr",
-    "version": "5.1.2",
+    "version": "5.1.3",
     "news": {
+      "5.1.3": {
+        "en": "Prevent crash when symbols are not provided for forcasts (seen on Sentry)",
+        "de": "Absturz verhindern, wenn Symbole für Vorhersagen nicht bereitgestellt werden (auf Sentry zu sehen)",
+        "ru": "Предотвращение сбоя, когда символы не предусмотрены для прогнозов (видно на Sentry)",
+        "pt": "Evite travamentos quando os símbolos não são fornecidos para previsões (visto no Sentinela)",
+        "nl": "Voorkom crash wanneer symbolen niet beschikbaar zijn voor voorspellingen (te zien op Sentry)",
+        "fr": "Empêcher le crash lorsque les symboles ne sont pas fournis pour les forcasts (vu sur Sentry)",
+        "it": "Prevenire l'arresto anomalo quando i simboli non sono forniti per le previsioni (visto su Sentry)",
+        "es": "Evitar bloqueos cuando no se proporcionan símbolos para los pronósticos (visto en Sentry)",
+        "pl": "Zapobiegaj awariom, gdy symbole nie są dostępne dla forcastów (widoczne na Sentry)",
+        "zh-cn": "当没有为预测提供符号时防止崩溃（见 Sentry）"
+      },
       "5.1.2": {
         "en": "Fix some invalid object default values",
         "de": "Korrigieren Sie einige ungültige Objektstandardwerte",
@@ -74,18 +86,6 @@
         "es": "evitar llamadas y otros errores a Yr cuando no se define ninguna ubicación",
         "pl": "zapobiegaj wywołaniom i innym błędom do Yr, gdy nie określono lokalizacji location",
         "zh-cn": "在未定义位置时防止对 Yr 的调用和其他错误"
-      },
-      "3.0.4": {
-        "en": "prevent last js-controller 3.3 warnings",
-        "de": "letzte js-controller 3.3 Warnungen verhindern",
-        "ru": "предотвратить последние предупреждения js-controller 3.3",
-        "pt": "evitar os últimos avisos do js-controller 3.3",
-        "nl": "voorkom laatste js-controller 3.3 waarschuwingen",
-        "fr": "empêcher les derniers avertissements js-controller 3.3",
-        "it": "prevenire gli ultimi avvisi di js-controller 3.3",
-        "es": "evitar las últimas advertencias de js-controller 3.3",
-        "pl": "zapobiegaj ostatnim ostrzeżeniom js-controller 3.3",
-        "zh-cn": "防止上次 js-controller 3.3 警告"
       }
     },
     "title": "yr.no",
