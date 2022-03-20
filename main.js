@@ -336,28 +336,13 @@ class Yr extends utils.Adapter {
             }
             //Next 1h
             if ('next_1_hours' in hour_data) {
-                const summary1h = hour_data['next_1_hours']['summary']['symbol_code'];
+                if (hour_data['next_1_hours']['summary'] && hour_data['next_1_hours']['summary']['symbol_code']) {
+                    const summary1h = hour_data['next_1_hours']['summary']['symbol_code'];
 
-                await this.setObjectNotExistsAsync(base_state_path + '1h_summary_symbol', {
-                    type: 'state',
-                    common: {
-                        name: '1h_summary_symbol',
-                        desc: '',
-                        type: 'string',
-                        role: 'text',
-                        read: true,
-                        write: false,
-                        def: ''
-                    },
-                    native: {},
-                });
-                await this.setStateAsync(base_state_path + '1h_summary_symbol', '/adapter/yr/icons/' + summary1h + '.svg', true);
-
-                if (summary1h.split('_')[0] in legend) {
-                    await this.setObjectNotExistsAsync(base_state_path + '1h_summary_text', {
+                    await this.setObjectNotExistsAsync(base_state_path + '1h_summary_symbol', {
                         type: 'state',
                         common: {
-                            name: '1h_summary_text',
+                            name: '1h_summary_symbol',
                             desc: '',
                             type: 'string',
                             role: 'text',
@@ -367,7 +352,24 @@ class Yr extends utils.Adapter {
                         },
                         native: {},
                     });
-                    await this.setStateAsync(base_state_path + '1h_summary_text', this._(legend[summary1h.split('_')[0]]['desc_en']), true);
+                    await this.setStateAsync(base_state_path + '1h_summary_symbol', '/adapter/yr/icons/' + summary1h + '.svg', true);
+
+                    if (summary1h.split('_')[0] in legend) {
+                        await this.setObjectNotExistsAsync(base_state_path + '1h_summary_text', {
+                            type: 'state',
+                            common: {
+                                name: '1h_summary_text',
+                                desc: '',
+                                type: 'string',
+                                role: 'text',
+                                read: true,
+                                write: false,
+                                def: ''
+                            },
+                            native: {},
+                        });
+                        await this.setStateAsync(base_state_path + '1h_summary_text', this._(legend[summary1h.split('_')[0]]['desc_en']), true);
+                    }
                 }
                 if ('details' in hour_data['next_1_hours']) {
                     for (const key in hour_data['next_1_hours']['details']) {
@@ -396,28 +398,13 @@ class Yr extends utils.Adapter {
 
             //Next 6h
             if ('next_6_hours' in hour_data) {
-                const summary6h = hour_data['next_6_hours']['summary']['symbol_code'];
+                if (hour_data['next_6_hours']['summary'] && hour_data['next_6_hours']['summary']['symbol_code']) {
+                    const summary6h = hour_data['next_6_hours']['summary']['symbol_code'];
 
-                await this.setObjectNotExistsAsync(base_state_path + '6h_summary_symbol', {
-                    type: 'state',
-                    common: {
-                        name: '6h_summary_symbol',
-                        desc: '',
-                        type: 'string',
-                        role: 'text',
-                        read: true,
-                        write: false,
-                        def: ''
-                    },
-                    native: {},
-                });
-                await this.setStateAsync(base_state_path + '6h_summary_symbol', `/adapter/yr/icons/${summary6h}.svg`, true);
-
-                if (summary6h.split('_')[0] in legend) {
-                    await this.setObjectNotExistsAsync(base_state_path + '6h_summary_text', {
+                    await this.setObjectNotExistsAsync(base_state_path + '6h_summary_symbol', {
                         type: 'state',
                         common: {
-                            name: '6h_summary_text',
+                            name: '6h_summary_symbol',
                             desc: '',
                             type: 'string',
                             role: 'text',
@@ -427,7 +414,24 @@ class Yr extends utils.Adapter {
                         },
                         native: {},
                     });
-                    await this.setStateAsync(base_state_path + '6h_summary_text', this._(legend[summary6h.split('_')[0]]['desc_en']), true);
+                    await this.setStateAsync(base_state_path + '6h_summary_symbol', `/adapter/yr/icons/${summary6h}.svg`, true);
+
+                    if (summary6h.split('_')[0] in legend) {
+                        await this.setObjectNotExistsAsync(base_state_path + '6h_summary_text', {
+                            type: 'state',
+                            common: {
+                                name: '6h_summary_text',
+                                desc: '',
+                                type: 'string',
+                                role: 'text',
+                                read: true,
+                                write: false,
+                                def: ''
+                            },
+                            native: {},
+                        });
+                        await this.setStateAsync(base_state_path + '6h_summary_text', this._(legend[summary6h.split('_')[0]]['desc_en']), true);
+                    }
                 }
                 if ('details' in hour_data['next_6_hours']) {
                     for (const key in hour_data['next_6_hours']['details']) {
@@ -456,28 +460,13 @@ class Yr extends utils.Adapter {
 
             //Next 12h
             if ('next_12_hours' in hour_data) {
-                const summary12h = hour_data['next_12_hours']['summary']['symbol_code'];
+                if (hour_data['next_12_hours']['summary'] && hour_data['next_12_hours']['summary']['symbol_code']) {
+                    const summary12h = hour_data['next_12_hours']['summary']['symbol_code'];
 
-                await this.setObjectNotExistsAsync(base_state_path + '12h_summary_symbol', {
-                    type: 'state',
-                    common: {
-                        name: '12h_summary_symbol',
-                        desc: '',
-                        type: 'string',
-                        role: 'text',
-                        read: true,
-                        write: false,
-                        def: ''
-                    },
-                    native: {},
-                });
-                await this.setStateAsync(base_state_path + '12h_summary_symbol', '/adapter/yr/icons/' + summary12h + '.svg', true);
-
-                if (summary12h.split('_')[0] in legend) {
-                    await this.setObjectNotExistsAsync(base_state_path + '12h_summary_text', {
+                    await this.setObjectNotExistsAsync(base_state_path + '12h_summary_symbol', {
                         type: 'state',
                         common: {
-                            name: '12h_summary_text',
+                            name: '12h_summary_symbol',
                             desc: '',
                             type: 'string',
                             role: 'text',
@@ -487,7 +476,24 @@ class Yr extends utils.Adapter {
                         },
                         native: {},
                     });
-                    await this.setStateAsync(base_state_path + '12h_summary_text', this._(legend[summary12h.split('_')[0]]['desc_en']), true);
+                    await this.setStateAsync(base_state_path + '12h_summary_symbol', '/adapter/yr/icons/' + summary12h + '.svg', true);
+
+                    if (summary12h.split('_')[0] in legend) {
+                        await this.setObjectNotExistsAsync(base_state_path + '12h_summary_text', {
+                            type: 'state',
+                            common: {
+                                name: '12h_summary_text',
+                                desc: '',
+                                type: 'string',
+                                role: 'text',
+                                read: true,
+                                write: false,
+                                def: ''
+                            },
+                            native: {},
+                        });
+                        await this.setStateAsync(base_state_path + '12h_summary_text', this._(legend[summary12h.split('_')[0]]['desc_en']), true);
+                    }
                 }
                 if ('details' in hour_data['next_12_hours']) {
                     for (const key in hour_data['next_12_hours']['details']) {
