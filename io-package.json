@@ -1,8 +1,20 @@
 {
   "common": {
     "name": "yr",
-    "version": "5.1.3",
+    "version": "5.1.4",
     "news": {
+      "5.1.4": {
+        "en": "Used package \"axios\" instead of \"get\"",
+        "de": "Benutztes Paket \"axios\" statt \"get\"",
+        "ru": "Использован пакет \"axios\" вместо \"get\"",
+        "pt": "Pacote usado \"axios\" em vez de \"get\"",
+        "nl": "Pakket \"axios\" gebruikt in plaats van \"get\"",
+        "fr": "Paquet utilisé \"axios\" au lieu de \"get\"",
+        "it": "Pacchetto usato \"axios\" invece di \"get\"",
+        "es": "Paquete usado \"axios\" en lugar de \"get\"",
+        "pl": "Używany pakiet „axios” zamiast „get”",
+        "zh-cn": "使用包“axios”而不是“get”"
+      },
       "5.1.3": {
         "en": "Prevent crash when symbols are not provided for forcasts (seen on Sentry)",
         "de": "Absturz verhindern, wenn Symbole für Vorhersagen nicht bereitgestellt werden (auf Sentry zu sehen)",
@@ -74,18 +86,6 @@
         "es": "Actualizar el tipo de datos de fechas",
         "pl": "Zaktualizuj typ danych dat",
         "zh-cn": "更新日期数据类型"
-      },
-      "3.0.5": {
-        "en": "prevent calls and other errors to Yr when no location is defined",
-        "de": "Anrufe und andere Fehler an Yr verhindern, wenn kein Standort definiert ist",
-        "ru": "предотвращать звонки и другие ошибки в Yr, когда местоположение не определено",
-        "pt": "evitar chamadas e outros erros para o ano quando nenhum local estiver definido",
-        "nl": "voorkom oproepen en andere fouten naar Yr wanneer er geen locatie is gedefinieerd",
-        "fr": "empêcher les appels et autres erreurs à Yr lorsqu'aucun emplacement n'est défini",
-        "it": "prevenire chiamate e altri errori a Yr quando non è definita alcuna posizione",
-        "es": "evitar llamadas y otros errores a Yr cuando no se define ninguna ubicación",
-        "pl": "zapobiegaj wywołaniom i innym błędom do Yr, gdy nie określono lokalizacji location",
-        "zh-cn": "在未定义位置时防止对 Yr 的调用和其他错误"
       }
     },
     "title": "yr.no",
