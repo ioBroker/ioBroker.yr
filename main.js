@@ -1,7 +1,7 @@
 /* jshint -W097 */
 /* jshint strict: false */
 /* jslint node: true */
-const got = require('got');
+const axios = require('axios');
 const fs = require('fs');
 const path = require('path');
 const http = require('http');
@@ -30,11 +30,6 @@ class Yr extends utils.Adapter {
 
         this.runObjectUpdates = false;
 
-        this.client = got.extend({
-            headers: {
-                'user-agent': `ioBroker.yr/${packJson.version} github.com/ioBroker/ioBroker.yr`
-            }
-        });
         this.unloaded = false;
     }
 
@@ -562,13 +557,18 @@ class Yr extends utils.Adapter {
             this.log.debug(`Get forecast from: ${url}`);
             let response;
             try {
-                response = await this.client(url).json();
+                response = await axios.get(url, {headers: {'user-agent': `ioBroker.yr/${packJson.version} github.com/ioBroker/ioBroker.yr`}});
             } catch (err) {
-                this.log.info(`Error while requesting data: ${err.message}`);
-                this.log.info('Please check your settings!');
+                if (err.response) {
+                    this.log.info(`Error while requesting data: ${err.response.data || err.response.status}`);
+                    this.log.info('Please check your settings!');
+                } else {
+                    this.log.info(`Error while requesting data: ${err.message}`);
+                    this.log.info('Please check your settings!');
+                }
             }
             if (response) {
-                await this.updateData(response);
+                await this.updateData(response.data);
             }
 
             this.log.info('Data updated.');
