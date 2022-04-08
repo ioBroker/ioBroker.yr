@@ -36,7 +36,7 @@ Icons are taken from here [https://api.met.no/weatherapi/weathericon/2.0/documen
 -->
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 5.2.0 (2022-04-08)
 * (bluefox) Added units to states
 * (bluefox) Added missing translations
 
