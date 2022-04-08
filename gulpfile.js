@@ -371,6 +371,16 @@ gulp.task('adminLanguages2words', function (done) {
     done();
 });
 
+gulp.task('libWords2languages', function (done) {
+    words2languages('./lib/');
+    done();
+});
+
+gulp.task('libLanguages2words', function (done) {
+    languages2words('./lib/');
+    done();
+});
+
 gulp.task('updatePackages', function (done) {
     iopackage.common.version = pkg.version;
     iopackage.common.news = iopackage.common.news || {};
