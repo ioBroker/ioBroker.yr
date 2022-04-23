@@ -11,7 +11,8 @@ const packJson = require('./package.json');
 const dictionary = require('./lib/words');
 
 //const LEGEND_URL = 'https://api.met.no/weatherapi/weathericon/2.0/legends'; Packed into legend.json now
-const BASE_FORECAST_URL = 'https://api.met.no/weatherapi/locationforecast/2.0/';
+//const BASE_FORECAST_URL = 'https://api.met.no/weatherapi/locationforecast/2.0/';
+const BASE_FORECAST_URL = 'https://aa0465pwwdn1nx8wo.api.met.no/weatherapi/locationforecast/2.0/'; // use on request of met.no!
 
 // const USER_AGENT = 'ioBroker.yr github.com/ioBroker/ioBroker.yr'
 

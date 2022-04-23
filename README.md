@@ -36,6 +36,11 @@ Icons are taken from here [https://api.met.no/weatherapi/weathericon/2.0/documen
 -->
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (Apollon77) Use alternative URL provided by met.no to get the data
+* (Apollon77) Change icon of adapter
+
 ### 5.2.0 (2022-04-08)
 * (bluefox) Added units to states
 * (bluefox) Added missing translations
