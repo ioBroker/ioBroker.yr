@@ -1,8 +1,20 @@
 {
   "common": {
     "name": "yr",
-    "version": "5.2.0",
+    "version": "5.3.0",
     "news": {
+      "5.3.0": {
+        "en": "Use alternative URL provided by met.no to get the data\nChange icon of adapter",
+        "de": "Verwenden Sie die von met.no bereitgestellte alternative URL, um die Daten abzurufen\nSymbol des Adapters ändern",
+        "ru": "Используйте альтернативный URL-адрес, предоставленный met.no, чтобы получить данные\nИзменить значок адаптера",
+        "pt": "Use o URL alternativo fornecido pelo met.no para obter os dados\nAlterar ícone do adaptador",
+        "nl": "Gebruik een alternatieve URL van met.no om de gegevens te krijgen\nPictogram van adapter wijzigen",
+        "fr": "Utilisez l'URL alternative fournie par met.no pour obtenir les données\nChanger l'icône de l'adaptateur",
+        "it": "Utilizzare l'URL alternativo fornito da met.no per ottenere i dati\nCambia icona dell'adattatore",
+        "es": "Use la URL alternativa provista por met.no para obtener los datos\nCambiar icono de adaptador",
+        "pl": "Użyj alternatywnego adresu URL dostarczonego przez met.no, aby uzyskać dane\nZmień ikonę adaptera",
+        "zh-cn": "使用 met.no 提供的替代 URL 来获取数据\n更改适配器的图标"
+      },
       "5.2.0": {
         "en": "Added units to states\nAdded missing translations",
         "de": "Einheiten zu Zuständen hinzugefügt\nFehlende Übersetzungen hinzugefügt",
@@ -74,18 +86,6 @@
         "es": "Mover programa si se usa el valor predeterminado a pedido de met.no\nNo consulte leyendas/iconos de forma dinámica, sino entregue con la versión\nasegúrese de no ejecutar la lógica cuando el adaptador ya se detuvo",
         "pl": "Przenieś harmonogram, jeśli używany jest domyślny na żądanie met.no\nNie wysyłaj zapytań do legendy/ikony dynamicznie, ale dostarczaj wraz z wersją\nupewnij się, że nie wykonujesz logiki, gdy adapter już się zatrzymał",
         "zh-cn": "如果根据 met.no 的要求使用默认值，则移动时间表\n不要动态查询图例/图标，而是随版本一起提供\n确保适配器已停止时不执行逻辑"
-      },
-      "5.0.0": {
-        "en": "Fixed translations\nUpdate dates data type",
-        "de": "Feste Übersetzungen\nDatumsdatentyp aktualisieren",
-        "ru": "Исправленные переводы\nТип данных даты обновления",
-        "pt": "Traduções fixas\nAtualizar tipo de dados de datas",
-        "nl": "Vaste vertalingen\nDatatype updaten",
-        "fr": "Traductions fixes\nMettre à jour le type de données des dates",
-        "it": "Traduzioni fisse\nAggiorna il tipo di dati delle date",
-        "es": "Traducciones fijas\nActualizar el tipo de datos de fechas",
-        "pl": "Tłumaczenia stałe\nZaktualizuj typ danych dat",
-        "zh-cn": "固定翻译\n更新日期数据类型"
       }
     },
     "title": "yr.no",
