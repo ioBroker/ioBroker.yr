@@ -28,7 +28,7 @@
     "@babel/cli": "^7.18.9",
     "@babel/core": "^7.18.13",
     "@iobroker/testing": "^3.0.2",
-    "@types/chai": "^4.3.1",
+    "@types/chai": "^4.3.3",
     "@types/chai-as-promised": "^7.1.5",
     "@types/gulp": "^4.0.9",
     "@types/mocha": "^9.1.1",
