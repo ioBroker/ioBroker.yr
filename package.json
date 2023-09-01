@@ -25,7 +25,7 @@
     "@alcalzone/release-script": "^3.6.0",
     "@alcalzone/release-script-plugin-iobroker": "^3.5.9",
     "@alcalzone/release-script-plugin-license": "^3.5.9",
-    "@babel/cli": "^7.21.5",
+    "@babel/cli": "^7.22.10",
     "@babel/core": "^7.21.5",
     "@iobroker/testing": "^4.1.0",
     "@types/chai": "^4.3.5",
