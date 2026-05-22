@@ -144,7 +144,7 @@
     "type": "weather",
     "dependencies": [
       {
-        "js-controller": ">=3.3.0"
+        "js-controller": ">=6.0.11"
       }
     ],
     "plugins": {
