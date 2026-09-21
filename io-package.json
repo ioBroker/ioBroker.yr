@@ -115,7 +115,10 @@
     "authors": [
       "hobbyquaker <hq@ccu.io>"
     ],
-    "license": "MIT",
+    "licenseInformation": {
+      "type": "free",
+      "license": "MIT"
+    },
     "platform": "Javascript/Node.js",
     "mode": "schedule",
     "schedule": "6 * * * *",
