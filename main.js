@@ -2,9 +2,9 @@
 /* jshint strict: false */
 /* jslint node: true */
 const axios = require('axios');
-const fs = require('fs');
-const path = require('path');
-const http = require('http');
+const fs = require('node:fs');
+const path = require('node:path');
+const http = require('node:http');
 const utils = require('@iobroker/adapter-core'); // Get common adapter utils
 
 const packJson = require('./package.json');
