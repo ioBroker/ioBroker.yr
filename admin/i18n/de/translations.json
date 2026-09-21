@@ -7,7 +7,7 @@
     "Latitude": "Breitengrad",
     "Location": "Standort",
     "Longitude": "Längengrad",
-    "Options": "Einstellungen",
+    "Options": "Optionen",
     "Send Translations": "Fehlende Übersetzungen an iobroker.net senden",
     "uses system config if empty": "verwendet Systemkonfiguration, wenn leer"
 }
