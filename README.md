@@ -162,6 +162,8 @@ Icons are taken from here [https://api.met.no/weatherapi/weathericon/2.0/documen
 ### 0.0.1
 * (hobbyquaker) first release
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## Todo
 * setState forecast_object
 
